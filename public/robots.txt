@@ -1,0 +1,68 @@
+# Robots.txt for RiceTest.net
+# Rice Purity Test - Personality Tests & Fun Quizzes
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Disallow development and build files
+Disallow: /.nuxt/
+Disallow: /.output/
+Disallow: /node_modules/
+Disallow: /scripts/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /deploy-info.json
+
+# Disallow dynamic API routes (they're not meant for indexing)
+Disallow: /api/
+
+# Allow specific important pages
+Allow: /about
+Allow: /contact
+Allow: /terms
+Allow: /cookies
+Allow: /privacy-policy
+
+# Special rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+# Disallow aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Sitemap locations
+Sitemap: https://ricetest.net/sitemap.xml
+
+# Contact information
+# Contact: contact@ricetest.net
+# Website: https://ricetest.net
