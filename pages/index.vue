@@ -795,9 +795,7 @@ const metaDescription = computed(() => {
 })
 
 const metaImage = computed(() => {
-  if (sharedScore.value) {
-    return `https://ricetest.net/api/share-image?score=${sharedScore.value}`
-  }
+  // 使用默认的静态图片，不再动态生成
   return 'https://ricetest.net/ricetestsicon.png'
 })
 
@@ -1448,7 +1446,7 @@ const testShareCard = async () => {
 const updateMetaTags = (userScore) => {
   const title = `Rice Purity Test Results - Score: ${userScore}/100`
   const description = `Just scored ${userScore}/100 on the Rice Purity Test! I'm "${getScoreDescription(userScore)}". Take the test yourself!`
-  const imageUrl = `https://ricetest.net/api/share-image?score=${userScore}`
+  const imageUrl = 'https://ricetest.net/ricetestsicon.png' // 使用静态图片
   
   // 更新页面meta标签
   if (process.client) {
