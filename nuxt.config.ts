@@ -14,5 +14,14 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/ricetestsicon.png' }
       ]
     }
+  },
+  nitro: {
+    publicAssets: [
+      {
+        baseURL: '/',
+        dir: 'public',
+        maxAge: 60 * 60 * 24 * 7 // 7 days cache for static assets
+      }
+    ]
   }
 })
