@@ -1,0 +1,243 @@
+/* Apple Theme Global Styles */
+/* 全站苹果主题样式 - 钻石星空设计 */
+
+/* Apple 字体系统 */
+* {
+  font-family: 
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text", 
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 钻石星空背景 */
+.diamond-stars-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.diamond-stars-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #7dd3fc, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(125, 211, 252, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #bfdbfe, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(191, 219, 254, 0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #7dd3fc, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* 钻石几何图案 */
+.diamond-pattern {
+  background-image: linear-gradient(45deg, transparent 40%, rgba(125, 211, 252, 0.1) 50%, transparent 60%);
+}
+
+/* Apple风格毛玻璃效果 */
+.apple-glass {
+  /* 降级方案 - 不支持backdrop-filter的浏览器 */
+  background: hsla(0, 0%, 100%, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+/* 渐进增强 - 支持backdrop-filter的浏览器 */
+@supports (backdrop-filter: blur(1px)) {
+  .apple-glass {
+    background: hsla(0, 0%, 100%, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* 通用卡片样式 */
+.apple-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.apple-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px 0 rgba(31, 38, 135, 0.25),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+/* 苹果风格按钮 */
+.apple-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.apple-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.apple-button:active {
+  transform: translateY(0);
+}
+
+/* 苹果风格输入框 */
+.apple-input {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.apple-input:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* 渐变背景类 */
+.diamond-gradient {
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #ffffff 100%);
+}
+
+.diamond-gradient-dark {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+}
+
+/* 响应式间距 */
+.apple-spacing {
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .apple-spacing {
+    padding: 2rem;
+  }
+}
+
+/* 文字样式 */
+.apple-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .apple-title {
+    font-size: 3rem;
+  }
+}
+
+.apple-subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .apple-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* 特殊效果 */
+.apple-shadow {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.apple-shadow-lg {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* 动画效果 */
+@keyframes apple-fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.apple-fade-in {
+  animation: apple-fadeIn 0.6s ease-out;
+}
+
+/* 通用布局 */
+.apple-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .apple-container {
+    padding: 0 2rem;
+  }
+}
+
+/* 状态指示器 */
+.apple-status-success {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.apple-status-warning {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.apple-status-error {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.apple-status-info {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}

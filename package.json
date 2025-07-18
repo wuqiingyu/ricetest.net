@@ -1,0 +1,21 @@
+{
+  "name": "ricetests",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "build:cf": "node scripts/build-for-cf.js",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "sitemap": "node scripts/generate-sitemap.js"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.0.0",
+    "nuxt": "^3.10.0"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "canvas": "^3.1.2"
+  }
+}
