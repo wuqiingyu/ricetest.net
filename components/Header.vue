@@ -15,6 +15,7 @@
           <div class="flex space-x-4 text-sm">
             <!-- <a href="#tests" class="text-gray-600 hover:text-blue-600 transition-colors">All Tests</a> -->
             <a href="/about" class="text-gray-600 hover:text-blue-600 transition-colors">About Us</a>
+            <a href="/wiki" class="text-gray-600 hover:text-blue-600 transition-colors">Wiki</a>
           </div>
         </div>
       </div>
