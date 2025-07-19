@@ -135,6 +135,9 @@ useHead({
     { property: 'og:title', content: 'Contact Us - RiceTests' },
     { property: 'og:description', content: 'Have questions, suggestions, or feedback about RiceTests? We\'re here to help and always excited to hear from our community!' },
     { property: 'og:type', content: 'website' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://ricetest.net/contact' }
   ]
 })
 </script>

@@ -257,6 +257,9 @@ useHead({
     { property: 'og:title', content: 'Terms of Service - RiceTests' },
     { property: 'og:description', content: 'Read our Terms of Service to understand your rights and responsibilities when using RiceTests platform.' },
     { property: 'og:type', content: 'website' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://ricetest.net/terms' }
   ]
 })
 

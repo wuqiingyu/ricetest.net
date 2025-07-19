@@ -285,6 +285,9 @@ useHead({
     { property: 'og:title', content: 'Cookie Policy - RiceTests' },
     { property: 'og:description', content: 'Learn about our cookie practices and how we use cookies to improve your experience on RiceTests.' },
     { property: 'og:type', content: 'website' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://ricetest.net/cookies' }
   ]
 })
 

@@ -17,7 +17,7 @@
       
       <!-- Article Header -->
       <header class="mb-12">
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">What is a Good Rice Purity Score? A Complete Guide to Understanding the Score</h1>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" style="line-height: 1.4 !important;">What is a Good Rice Purity Score? A Complete Guide to Understanding the Score</h1>
         <div class="flex items-center gap-6 text-sm text-gray-600 mb-6">
           <span class="flex items-center gap-1">
             <span>⏱️</span>
@@ -40,7 +40,7 @@
 
           <!-- What is the Rice Purity Test Section -->
           <div class="mb-8">
-            <h2 class="apple-title text-2xl mb-4 border-b-2 border-blue-200 pb-2">What is the Rice Purity Test?</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-blue-200 pb-2" style="line-height: 1.4 !important;">What is the Rice Purity Test?</h2>
             <p class="mb-4">
               Before diving into what is a good rice purity score, it's important to understand the background of the Rice Purity Test. Originally developed by Rice University in the United States, the Rice Purity Test is a self-assessment comprising a series of questions designed to measure an individual's level of "purity" based on life experiences. The questions cover topics like love, drinking, illegal activities, and sexual experiences. The score ranges from 0 to 100, with a higher score indicating greater "purity" or a more conservative life experience.
             </p>
@@ -48,7 +48,7 @@
 
           <!-- Main Question Section -->
           <div class="mb-8">
-            <h2 class="apple-title text-2xl mb-4 border-b-2 border-blue-200 pb-2">What is a Good Rice Purity Score? There is No Standard Answer</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-blue-200 pb-2" style="line-height: 1.4 !important;">What is a Good Rice Purity Score? There is No Standard Answer</h2>
             <p class="mb-4">
               After completing the test, many people ask: <strong>What is a good rice purity score?</strong> The truth is, there is no absolute "good" or "bad" when it comes to your Rice Purity Score. Everyone's lifestyle, upbringing, and life choices differ, so it's impossible to judge a person solely based on a number.
             </p>
@@ -56,7 +56,7 @@
 
           <!-- High Score Section -->
           <div class="mb-8">
-            <h3 class="apple-title text-xl mb-4 text-green-800">What Does a High Score Mean?</h3>
+            <h3 class="text-xl font-semibold mb-4 text-green-800" style="line-height: 1.4 !important;">What Does a High Score Mean?</h3>
             <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-r-lg">
               <p>
                 If your Rice Purity Score is high, say above 90, it suggests that you have had relatively few experiences in areas like drinking, smoking, drugs, love, or sexual activities. This is neither inherently good nor bad; it simply reflects your cautious or conservative lifestyle choices or upbringing.
@@ -66,7 +66,7 @@
 
           <!-- Low Score Section -->
           <div class="mb-8">
-            <h3 class="apple-title text-xl mb-4 text-orange-800">What Does a Low Score Mean?</h3>
+            <h3 class="text-xl font-semibold mb-4 text-orange-800" style="line-height: 1.4 !important;">What Does a Low Score Mean?</h3>
             <div class="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-lg">
               <p>
                 On the other hand, if your score is low, such as between 30-40, it generally means you have had a rich variety of experiences in love, relationships, parties, and other adventures. A low score does not equate to being "bad." Instead, it signifies diverse life experiences and an adventurous spirit. There is no right or wrong path in life.
@@ -76,7 +76,7 @@
 
           <!-- Is High Score Good Section -->
           <div class="mb-8">
-            <h2 class="apple-title text-2xl mb-4 border-b-2 border-blue-200 pb-2">Is a High Rice Purity Score Good?</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-blue-200 pb-2" style="line-height: 1.4 !important;">Is a High Rice Purity Score Good?</h2>
             <p class="mb-4">
               Many people wonder, <em>is a high rice purity score good?</em> To answer simply:
             </p>
@@ -91,7 +91,7 @@
 
           <!-- Age Groups Section -->
           <div class="mb-8">
-            <h2 class="apple-title text-2xl mb-4 border-b-2 border-blue-200 pb-2">What's a Good Rice Purity Score for Different Age Groups?</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-blue-200 pb-2" style="line-height: 1.4 !important;">What's a Good Rice Purity Score for Different Age Groups?</h2>
             <p class="mb-4">
               Different age groups view the Rice Purity Score differently.
             </p>
@@ -129,7 +129,7 @@
 
           <!-- Self-Awareness Section -->
           <div class="mb-8">
-            <h2 class="apple-title text-2xl mb-4 border-b-2 border-blue-200 pb-2">Good Rice Purity Score: A Reflection of Self-Awareness</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-blue-200 pb-2" style="line-height: 1.4 !important;">Good Rice Purity Score: A Reflection of Self-Awareness</h2>
             <p class="mb-4">
               Discussions around <em>good rice purity score</em> often stem from a desire for self-affirmation. The Rice Purity Score is merely a snapshot of where you are in life and doesn't define your worth.
             </p>
@@ -163,7 +163,7 @@
 
           <!-- Why People Ask Section -->
           <div class="mb-8">
-            <h2 class="apple-title text-2xl mb-4 border-b-2 border-blue-200 pb-2">Why Are People Asking What is a Good Rice Purity Score?</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-blue-200 pb-2" style="line-height: 1.4 !important;">Why Are People Asking What is a Good Rice Purity Score?</h2>
             <p class="mb-4">
               The Rice Purity Test is not just a fun quiz but also a social tool. Sharing scores helps people connect with like-minded individuals or simply enjoy lighthearted conversation.
             </p>
@@ -174,7 +174,7 @@
 
           <!-- Conclusion -->
           <div class="mb-8">
-            <h2 class="apple-title text-2xl mb-4 border-b-2 border-blue-200 pb-2">Conclusion: Don't Be Confined by the Good Rice Purity Score</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b-2 border-blue-200 pb-2" style="line-height: 1.4 !important;">Conclusion: Don't Be Confined by the Good Rice Purity Score</h2>
             <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
               <p class="mb-4">
                 To conclude, let's revisit the frequently asked question: <strong>What is a good rice purity score?</strong> The answer is: there is no universal standard. <em>What's a good rice purity score?</em> It varies from person to person. A good rice purity score is simply a reflection of your personality, experiences, and choices.
@@ -294,16 +294,18 @@ nav a:hover {
   }
   
   h1 {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 1.875rem !important;
+    line-height: 1.4 !important;
   }
   
-  .prose h2 {
-    font-size: 1.5rem;
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
   }
   
-  .prose h3 {
-    font-size: 1.25rem;
+  h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
   }
 }
 

@@ -41,6 +41,30 @@
             </a>
           </article>
 
+          <!-- Article: Rice Purity Test Score Meaning -->
+          <article class="apple-card apple-spacing hover:shadow-lg transition-shadow cursor-pointer group">
+            <a href="/wiki/rice-purity-test-score-meaning" class="block">
+              <div class="flex items-center gap-6">
+                <div class="flex items-center gap-3">
+                  <span class="text-3xl">🎭</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold">Analysis</span>
+                </div>
+                <div class="flex-1">
+                  <h3 class="apple-title text-xl group-hover:text-blue-600 transition-colors mb-2" style="line-height: 2.2 !important;">Rice Purity Test Score Meaning</h3>
+                  <p class="text-gray-600 text-sm mb-3">
+                    Understanding the life attitude behind every score. Explore what your Rice Purity Test score reveals about your experiences, values, and approach to life through detailed score range analysis.
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <div class="text-xs text-gray-500">
+                      <span>⏱️ 10 min read</span>
+                    </div>
+                    <span class="text-blue-600 group-hover:text-blue-800 text-sm font-medium">Read →</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+
           <!-- Coming Soon Placeholder -->
           <article class="apple-card apple-spacing border-2 border-dashed border-gray-300">
             <div class="flex items-center justify-center py-12">
