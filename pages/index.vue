@@ -4,7 +4,7 @@
     <div class="max-w-4xl mx-auto px-4 text-center">
       <!-- Main Title -->
       <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
-        Rice Purity Test
+        Free Official Rice Purity Test
       </h1>
       
       <!-- Subtitle/Description -->
