@@ -1,13 +1,22 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-    <!-- Header Component - 所有页面共享 -->
-    <Header />
+  <div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N94TB5H5"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <!-- Header Component - 所有页面共享 -->
+      <Header />
 
-    <!-- 页面内容插槽 -->
-    <slot />
+      <!-- 页面内容插槽 -->
+      <slot />
 
-    <!-- Footer Component - 所有页面共享 -->
-    <Footer />
+      <!-- Footer Component - 所有页面共享 -->
+      <Footer />
+    </div>
   </div>
 </template>
 
