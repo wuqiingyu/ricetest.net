@@ -1,0 +1,494 @@
+{
+  "questions": [
+    {
+      "question": "Who wrote the novel \"1984\"?",
+      "options": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "Ernest Hemingway"],
+      "correct": 0
+    },
+    {
+      "question": "What is the tallest building in the world?",
+      "options": ["Shanghai Tower", "Abraj Al-Bait Clock Tower", "Burj Khalifa", "One World Trade Center"],
+      "correct": 2
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "correct": 1
+    },
+    {
+      "question": "What is the chemical symbol for gold?",
+      "options": ["Go", "Gd", "Au", "Ag"],
+      "correct": 2
+    },
+    {
+      "question": "Who painted the Mona Lisa?",
+      "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+      "correct": 2
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "options": ["Sydney", "Melbourne", "Brisbane", "Canberra"],
+      "correct": 3
+    },
+    {
+      "question": "Which ocean is the largest?",
+      "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+      "correct": 3
+    },
+    {
+      "question": "What is the hardest natural substance?",
+      "options": ["Quartz", "Diamond", "Ruby", "Emerald"],
+      "correct": 1
+    },
+    {
+      "question": "Who invented the telephone?",
+      "options": ["Thomas Edison", "Nikola Tesla", "Alexander Graham Bell", "Benjamin Franklin"],
+      "correct": 2
+    },
+    {
+      "question": "What is the smallest country in the world?",
+      "options": ["Monaco", "Nauru", "San Marino", "Vatican City"],
+      "correct": 3
+    },
+    {
+      "question": "Which gas makes up about 78% of Earth's atmosphere?",
+      "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Argon"],
+      "correct": 2
+    },
+    {
+      "question": "What is the speed of light in a vacuum?",
+      "options": ["300,000 km/s", "299,792,458 m/s", "186,000 miles/s", "All of the above"],
+      "correct": 3
+    },
+    {
+      "question": "Who discovered penicillin?",
+      "options": ["Marie Curie", "Louis Pasteur", "Alexander Fleming", "Edward Jenner"],
+      "correct": 2
+    },
+    {
+      "question": "What is the largest mammal in the world?",
+      "options": ["African Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+      "correct": 1
+    },
+    {
+      "question": "Which element has the atomic number 1?",
+      "options": ["Helium", "Lithium", "Hydrogen", "Carbon"],
+      "correct": 2
+    },
+    {
+      "question": "What year did World War II end?",
+      "options": ["1944", "1945", "1946", "1947"],
+      "correct": 1
+    },
+    {
+      "question": "Who wrote \"Romeo and Juliet\"?",
+      "options": ["Charles Dickens", "Jane Austen", "William Shakespeare", "Mark Twain"],
+      "correct": 2
+    },
+    {
+      "question": "What is the longest river in the world?",
+      "options": ["Amazon River", "Nile River", "Mississippi River", "Yangtze River"],
+      "correct": 1
+    },
+    {
+      "question": "Which planet has the most moons?",
+      "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+      "correct": 1
+    },
+    {
+      "question": "What is the most abundant element in the universe?",
+      "options": ["Oxygen", "Carbon", "Helium", "Hydrogen"],
+      "correct": 3
+    },
+    {
+      "question": "Who developed the theory of evolution?",
+      "options": ["Charles Darwin", "Gregor Mendel", "Alfred Wallace", "Jean-Baptiste Lamarck"],
+      "correct": 0
+    },
+    {
+      "question": "What is the largest desert in the world?",
+      "options": ["Sahara Desert", "Gobi Desert", "Antarctica", "Arabian Desert"],
+      "correct": 2
+    },
+    {
+      "question": "Which vitamin is produced by the skin when exposed to sunlight?",
+      "options": ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
+      "correct": 3
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "options": ["Osaka", "Kyoto", "Tokyo", "Hiroshima"],
+      "correct": 2
+    },
+    {
+      "question": "Who painted \"The Starry Night\"?",
+      "options": ["Claude Monet", "Vincent van Gogh", "Pablo Picasso", "Salvador Dalí"],
+      "correct": 1
+    },
+    {
+      "question": "What is the deepest point in the ocean?",
+      "options": ["Puerto Rico Trench", "Java Trench", "Mariana Trench", "Peru-Chile Trench"],
+      "correct": 2
+    },
+    {
+      "question": "Which blood type is known as the universal donor?",
+      "options": ["Type A", "Type B", "Type AB", "Type O"],
+      "correct": 3
+    },
+    {
+      "question": "What is the chemical formula for water?",
+      "options": ["H2O", "CO2", "NaCl", "CH4"],
+      "correct": 0
+    },
+    {
+      "question": "Who invented the World Wide Web?",
+      "options": ["Bill Gates", "Steve Jobs", "Tim Berners-Lee", "Mark Zuckerberg"],
+      "correct": 2
+    },
+    {
+      "question": "What is the largest organ in the human body?",
+      "options": ["Brain", "Liver", "Lungs", "Skin"],
+      "correct": 3
+    },
+    {
+      "question": "Which country has the most time zones?",
+      "options": ["Russia", "United States", "China", "France"],
+      "correct": 3
+    },
+    {
+      "question": "What is the study of earthquakes called?",
+      "options": ["Geology", "Seismology", "Meteorology", "Volcanology"],
+      "correct": 1
+    },
+    {
+      "question": "Who composed \"The Four Seasons\"?",
+      "options": ["Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Antonio Vivaldi", "Ludwig van Beethoven"],
+      "correct": 2
+    },
+    {
+      "question": "What is the most spoken language in the world?",
+      "options": ["English", "Spanish", "Mandarin Chinese", "Hindi"],
+      "correct": 2
+    },
+    {
+      "question": "Which planet is closest to the Sun?",
+      "options": ["Venus", "Earth", "Mercury", "Mars"],
+      "correct": 2
+    },
+    {
+      "question": "What is the currency of the United Kingdom?",
+      "options": ["Euro", "Dollar", "Pound Sterling", "Franc"],
+      "correct": 2
+    },
+    {
+      "question": "Who wrote \"Pride and Prejudice\"?",
+      "options": ["Charlotte Brontë", "Emily Dickinson", "Jane Austen", "Virginia Woolf"],
+      "correct": 2
+    },
+    {
+      "question": "What is the largest bone in the human body?",
+      "options": ["Tibia", "Femur", "Humerus", "Fibula"],
+      "correct": 1
+    },
+    {
+      "question": "Which continent has the most countries?",
+      "options": ["Asia", "Europe", "Africa", "South America"],
+      "correct": 2
+    },
+    {
+      "question": "What is the pH level of pure water?",
+      "options": ["6", "7", "8", "9"],
+      "correct": 1
+    },
+    {
+      "question": "Who discovered America?",
+      "options": ["Amerigo Vespucci", "Christopher Columbus", "Leif Erikson", "John Cabot"],
+      "correct": 1
+    },
+    {
+      "question": "What is the smallest unit of matter?",
+      "options": ["Molecule", "Atom", "Electron", "Proton"],
+      "correct": 1
+    },
+    {
+      "question": "Which mountain range contains Mount Everest?",
+      "options": ["Andes", "Rocky Mountains", "Alps", "Himalayas"],
+      "correct": 3
+    },
+    {
+      "question": "What is the main component of natural gas?",
+      "options": ["Ethane", "Propane", "Methane", "Butane"],
+      "correct": 2
+    },
+    {
+      "question": "Who painted the ceiling of the Sistine Chapel?",
+      "options": ["Leonardo da Vinci", "Raphael", "Michelangelo", "Donatello"],
+      "correct": 2
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "options": ["Toronto", "Vancouver", "Montreal", "Ottawa"],
+      "correct": 3
+    },
+    {
+      "question": "Which organ produces insulin?",
+      "options": ["Liver", "Kidney", "Pancreas", "Thyroid"],
+      "correct": 2
+    },
+    {
+      "question": "What is the fastest land animal?",
+      "options": ["Lion", "Cheetah", "Leopard", "Gazelle"],
+      "correct": 1
+    },
+    {
+      "question": "Which war was fought between the North and South in America?",
+      "options": ["Revolutionary War", "War of 1812", "Civil War", "Spanish-American War"],
+      "correct": 2
+    },
+    {
+      "question": "What is the largest lake in the world?",
+      "options": ["Lake Superior", "Lake Victoria", "Caspian Sea", "Lake Baikal"],
+      "correct": 2
+    },
+    {
+      "question": "Who invented the light bulb?",
+      "options": ["Nikola Tesla", "Thomas Edison", "Benjamin Franklin", "Alexander Fleming"],
+      "correct": 1
+    },
+    {
+      "question": "What is the study of plants called?",
+      "options": ["Zoology", "Botany", "Ecology", "Biology"],
+      "correct": 1
+    },
+    {
+      "question": "Which planet has rings?",
+      "options": ["Jupiter", "Saturn", "Uranus", "All of the above"],
+      "correct": 3
+    },
+    {
+      "question": "What is the boiling point of water at sea level?",
+      "options": ["90°C", "95°C", "100°C", "105°C"],
+      "correct": 2
+    },
+    {
+      "question": "Who wrote \"The Great Gatsby\"?",
+      "options": ["Ernest Hemingway", "F. Scott Fitzgerald", "William Faulkner", "John Steinbeck"],
+      "correct": 1
+    },
+    {
+      "question": "What is the largest island in the world?",
+      "options": ["Australia", "Greenland", "New Guinea", "Madagascar"],
+      "correct": 1
+    },
+    {
+      "question": "Which metal is liquid at room temperature?",
+      "options": ["Lead", "Tin", "Mercury", "Zinc"],
+      "correct": 2
+    },
+    {
+      "question": "What is the capital of France?",
+      "options": ["Lyon", "Marseille", "Paris", "Nice"],
+      "correct": 2
+    },
+    {
+      "question": "Who discovered radioactivity?",
+      "options": ["Marie Curie", "Henri Becquerel", "Ernest Rutherford", "Pierre Curie"],
+      "correct": 1
+    },
+    {
+      "question": "What is the most abundant gas in Earth's atmosphere?",
+      "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Argon"],
+      "correct": 2
+    },
+    {
+      "question": "Which composer wrote \"Moonlight Sonata\"?",
+      "options": ["Mozart", "Chopin", "Beethoven", "Bach"],
+      "correct": 2
+    },
+    {
+      "question": "What is the largest country by land area?",
+      "options": ["Canada", "China", "United States", "Russia"],
+      "correct": 3
+    },
+    {
+      "question": "Which vitamin prevents scurvy?",
+      "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+      "correct": 2
+    },
+    {
+      "question": "What is the study of the weather called?",
+      "options": ["Geology", "Astronomy", "Meteorology", "Oceanography"],
+      "correct": 2
+    },
+    {
+      "question": "Who painted \"The Last Supper\"?",
+      "options": ["Michelangelo", "Raphael", "Leonardo da Vinci", "Caravaggio"],
+      "correct": 2
+    },
+    {
+      "question": "What is the freezing point of water?",
+      "options": ["-1°C", "0°C", "1°C", "2°C"],
+      "correct": 1
+    },
+    {
+      "question": "Which country is known as the Land of the Rising Sun?",
+      "options": ["China", "South Korea", "Japan", "Thailand"],
+      "correct": 2
+    },
+    {
+      "question": "What is the largest muscle in the human body?",
+      "options": ["Bicep", "Quadriceps", "Gluteus Maximus", "Latissimus Dorsi"],
+      "correct": 2
+    },
+    {
+      "question": "Who developed the first successful polio vaccine?",
+      "options": ["Alexander Fleming", "Louis Pasteur", "Jonas Salk", "Edward Jenner"],
+      "correct": 2
+    },
+    {
+      "question": "What is the capital of Italy?",
+      "options": ["Milan", "Naples", "Florence", "Rome"],
+      "correct": 3
+    },
+    {
+      "question": "Which element is essential for photosynthesis?",
+      "options": ["Oxygen", "Nitrogen", "Carbon", "Hydrogen"],
+      "correct": 2
+    },
+    {
+      "question": "What is the longest bone in the human body?",
+      "options": ["Tibia", "Humerus", "Femur", "Radius"],
+      "correct": 2
+    },
+    {
+      "question": "Who wrote \"To Kill a Mockingbird\"?",
+      "options": ["Harper Lee", "Truman Capote", "William Faulkner", "Tennessee Williams"],
+      "correct": 0
+    },
+    {
+      "question": "What is the most abundant metal in Earth's crust?",
+      "options": ["Iron", "Aluminum", "Copper", "Zinc"],
+      "correct": 1
+    },
+    {
+      "question": "Which ocean surrounds Antarctica?",
+      "options": ["Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Southern Ocean"],
+      "correct": 3
+    },
+    {
+      "question": "What is the study of stars called?",
+      "options": ["Astrology", "Astronomy", "Astrophysics", "Cosmology"],
+      "correct": 1
+    },
+    {
+      "question": "Who composed \"The Blue Danube\"?",
+      "options": ["Johann Strauss II", "Franz Schubert", "Gustav Mahler", "Richard Wagner"],
+      "correct": 0
+    },
+    {
+      "question": "What is the chemical symbol for iron?",
+      "options": ["I", "Ir", "Fe", "In"],
+      "correct": 2
+    },
+    {
+      "question": "Which continent is the driest?",
+      "options": ["Africa", "Australia", "Antarctica", "Asia"],
+      "correct": 2
+    },
+    {
+      "question": "What is the largest type of penguin?",
+      "options": ["King Penguin", "Emperor Penguin", "Adelie Penguin", "Chinstrap Penguin"],
+      "correct": 1
+    },
+    {
+      "question": "Who invented the printing press?",
+      "options": ["Johannes Gutenberg", "William Caxton", "Aldus Manutius", "Nicolas Jenson"],
+      "correct": 0
+    },
+    {
+      "question": "What is the capital of Spain?",
+      "options": ["Barcelona", "Valencia", "Seville", "Madrid"],
+      "correct": 3
+    },
+    {
+      "question": "Which hormone regulates blood sugar?",
+      "options": ["Adrenaline", "Insulin", "Cortisol", "Thyroxine"],
+      "correct": 1
+    },
+    {
+      "question": "What is the smallest planet in our solar system?",
+      "options": ["Mars", "Venus", "Mercury", "Pluto"],
+      "correct": 2
+    },
+    {
+      "question": "Who painted \"Girl with a Pearl Earring\"?",
+      "options": ["Rembrandt", "Johannes Vermeer", "Frans Hals", "Jan van Eyck"],
+      "correct": 1
+    },
+    {
+      "question": "What is the study of insects called?",
+      "options": ["Entomology", "Ornithology", "Herpetology", "Ichthyology"],
+      "correct": 0
+    },
+    {
+      "question": "Which river flows through Egypt?",
+      "options": ["Euphrates", "Nile", "Congo", "Niger"],
+      "correct": 1
+    },
+    {
+      "question": "What is the hardest rock?",
+      "options": ["Granite", "Quartzite", "Diamond", "Basalt"],
+      "correct": 2
+    },
+    {
+      "question": "Who wrote \"The Catcher in the Rye\"?",
+      "options": ["J.D. Salinger", "Jack Kerouac", "William Burroughs", "Allen Ginsberg"],
+      "correct": 0
+    },
+    {
+      "question": "What is the most common blood type?",
+      "options": ["A+", "B+", "AB+", "O+"],
+      "correct": 3
+    },
+    {
+      "question": "Which country has the longest coastline?",
+      "options": ["Russia", "Norway", "Canada", "Chile"],
+      "correct": 2
+    },
+    {
+      "question": "What is the study of earthquakes called?",
+      "options": ["Geology", "Seismology", "Volcanology", "Meteorology"],
+      "correct": 1
+    },
+    {
+      "question": "Who composed \"Carmen\"?",
+      "options": ["Giuseppe Verdi", "Georges Bizet", "Giacomo Puccini", "Richard Wagner"],
+      "correct": 1
+    },
+    {
+      "question": "What is the largest artery in the human body?",
+      "options": ["Pulmonary Artery", "Carotid Artery", "Aorta", "Femoral Artery"],
+      "correct": 2
+    },
+    {
+      "question": "Which element has the symbol 'Na'?",
+      "options": ["Nitrogen", "Sodium", "Nickel", "Neon"],
+      "correct": 1
+    },
+    {
+      "question": "What is the capital of Russia?",
+      "options": ["St. Petersburg", "Kiev", "Moscow", "Minsk"],
+      "correct": 2
+    },
+    {
+      "question": "Who discovered DNA structure?",
+      "options": ["Watson & Crick", "Gregor Mendel", "Charles Darwin", "Louis Pasteur"],
+      "correct": 0
+    },
+    {
+      "question": "What is the largest shark species?",
+      "options": ["Great White Shark", "Tiger Shark", "Whale Shark", "Hammerhead Shark"],
+      "correct": 2
+    }
+  ]
+}
