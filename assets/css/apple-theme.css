@@ -1,15 +1,15 @@
 /* Apple Theme Global Styles */
 /* 全站苹果主题样式 - 钻石星空设计 */
 
-/* Apple 字体系统 */
+/* Nunito 圆润卡通字体系统 */
 * {
   font-family: 
+    "Nunito",
     -apple-system,
     BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text", 
+    "Segoe UI",
+    Roboto,
     "Helvetica Neue",
-    Helvetica,
     Arial,
     "PingFang SC",
     "Hiragino Sans GB",

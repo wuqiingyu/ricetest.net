@@ -43,3 +43,7 @@ useHead({
   ]
 })
 </script>
+
+<style scoped>
+/* Layout specific styles */
+</style>

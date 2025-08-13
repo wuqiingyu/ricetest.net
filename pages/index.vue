@@ -538,6 +538,195 @@
         </div>
       </div>
 
+      <!-- Reviews Section -->
+      <div class="mt-12 mb-12">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">What Others Say About Us</h2>
+          <p class="text-gray-600">
+            Trusted by thousands and featured across the web
+          </p>
+        </div>
+        
+        <!-- Horizontal Scrolling Reviews -->
+        <div class="relative overflow-hidden">
+          <div class="flex space-x-6 animate-scroll-horizontal">
+            <!-- Review 1 - Slate Star Codex -->
+            <div class="flex-shrink-0 w-96 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-blue-100">
+              <div class="flex items-start mb-4">
+                <div class="w-12 h-12 rounded-lg overflow-hidden mr-4">
+                  <img 
+                    src="/codexicon.png" 
+                    alt="Slate Star Codex"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <a href="https://slatestarcodex.com" target="_blank" rel="nofollow noopener noreferrer" class="font-bold text-gray-800 hover:text-blue-600 transition-colors">
+                    Slate Star Codex
+                  </a>
+                  <div class="flex items-center mt-1">
+                    <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "A playful social tool that helps young people explore and discuss their experiences. Perfect for sparking interesting conversations at parties!"
+              </p>
+              <div class="mt-4 text-xs text-gray-500">
+                <a href="https://slatestarcodx.com/author/rice-purity-test/" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-blue-600 transition-colors">
+                  Read Psychology Blog Review
+                </a>
+              </div>
+            </div>
+
+            <!-- Review 2 - Tech Bulletin -->
+            <div class="flex-shrink-0 w-96 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-green-100">
+              <div class="flex items-start mb-4">
+                <div class="w-12 h-12 rounded-lg overflow-hidden mr-4">
+                  <img 
+                    src="/techbillionicon.jpg" 
+                    alt="TechBullion"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <a href="https://techbullion.com" target="_blank" rel="nofollow noopener noreferrer" class="font-bold text-gray-800 hover:text-green-600 transition-colors">
+                    TechBullion
+                  </a>
+                  <div class="flex items-center mt-1">
+                    <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "The most comprehensive and user-friendly Rice Purity Test available online in 2025. Free, accurate, and instant results!"
+              </p>
+              <div class="mt-4 text-xs text-gray-500">
+                <a href="https://techbullion.com/how-to-test-your-rice-purity-score-for-free-in-2025/" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-green-600 transition-colors">
+                  Read Technology Review
+                </a>
+              </div>
+            </div>
+
+            <!-- Review 3 - Live Positively -->
+            <div class="flex-shrink-0 w-96 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-purple-100">
+              <div class="flex items-start mb-4">
+                <div class="w-12 h-12 rounded-lg overflow-hidden mr-4">
+                  <img 
+                    src="/livepositively.png" 
+                    alt="Live Positively"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <a href="https://livepositively.com" target="_blank" rel="nofollow noopener noreferrer" class="font-bold text-gray-800 hover:text-purple-600 transition-colors">
+                    Live Positively
+                  </a>
+                  <div class="flex items-center mt-1">
+                    <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "Decode your Rice Purity score from innocent to adventurous. A fantastic way to understand your personal journey and experiences!"
+              </p>
+              <div class="mt-4 text-xs text-gray-500">
+                <a href="https://livepositively.com/decode-your-rice-purity-score-from-innocent-to-adventurous-whataos-your-story/" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-purple-600 transition-colors">
+                  Read Lifestyle Review
+                </a>
+              </div>
+            </div>
+
+            <!-- Duplicate cards for continuous scroll -->
+            <div class="flex-shrink-0 w-96 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-blue-100">
+              <div class="flex items-start mb-4">
+                <div class="w-12 h-12 rounded-lg overflow-hidden mr-4">
+                  <img 
+                    src="/codexicon.png" 
+                    alt="Slate Star Codex"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <a href="https://slatestarcodex.com" target="_blank" rel="nofollow noopener noreferrer" class="font-bold text-gray-800 hover:text-blue-600 transition-colors">
+                    Slate Star Codex
+                  </a>
+                  <div class="flex items-center mt-1">
+                    <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "A playful social tool that helps young people explore and discuss their experiences. Perfect for sparking interesting conversations at parties!"
+              </p>
+              <div class="mt-4 text-xs text-gray-500">
+                <a href="https://slatestarcodex.com/author/rice-purity-test/" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-blue-600 transition-colors">
+                  Read Psychology Blog Review
+                </a>
+              </div>
+            </div>
+            
+            <!-- Duplicate TechBullion -->
+            <div class="flex-shrink-0 w-96 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-green-100">
+              <div class="flex items-start mb-4">
+                <div class="w-12 h-12 rounded-lg overflow-hidden mr-4">
+                  <img 
+                    src="/techbillionicon.jpg" 
+                    alt="TechBullion"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <a href="https://techbullion.com" target="_blank" rel="nofollow noopener noreferrer" class="font-bold text-gray-800 hover:text-green-600 transition-colors">
+                    TechBullion
+                  </a>
+                  <div class="flex items-center mt-1">
+                    <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "The most comprehensive and user-friendly Rice Purity Test available online in 2025. Free, accurate, and instant results!"
+              </p>
+              <div class="mt-4 text-xs text-gray-500">
+                <a href="https://techbullion.com/how-to-test-your-rice-purity-score-for-free-in-2025/" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-green-600 transition-colors">
+                  Read Technology Review
+                </a>
+              </div>
+            </div>
+
+            <!-- Duplicate Live Positively -->
+            <div class="flex-shrink-0 w-96 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-purple-100">
+              <div class="flex items-start mb-4">
+                <div class="w-12 h-12 rounded-lg overflow-hidden mr-4">
+                  <img 
+                    src="/livepositively.png" 
+                    alt="Live Positively"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <a href="https://livepositively.com" target="_blank" rel="nofollow noopener noreferrer" class="font-bold text-gray-800 hover:text-purple-600 transition-colors">
+                    Live Positively
+                  </a>
+                  <div class="flex items-center mt-1">
+                    <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                "Decode your Rice Purity score from innocent to adventurous. A fantastic way to understand your personal journey and experiences!"
+              </p>
+              <div class="mt-4 text-xs text-gray-500">
+                <a href="https://livepositively.com/decode-your-rice-purity-score-from-innocent-to-adventurous-whataos-your-story/" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-purple-600 transition-colors">
+                  Read Lifestyle Review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Complete Questions List -->
       <div class="mt-12 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-8 border border-blue-100">
         <h2 class="text-3xl font-bold text-gray-800 mb-6">The Complete 100 Questions</h2>
@@ -1662,5 +1851,24 @@ const getConfettiStyle = (n) => {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
   }
+}
+
+/* Reviews horizontal scroll animation */
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scroll-horizontal 20s linear infinite;
+  width: calc(200% + 24px); /* 3 cards + duplicate cards + gaps */
+}
+
+.animate-scroll-horizontal:hover {
+  animation-play-state: paused;
 }
 </style>

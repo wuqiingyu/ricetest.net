@@ -13,6 +13,8 @@
             <span class="text-sm text-gray-600">Personality Tests & Fun Quizzes</span>
           </div>
           <div class="flex space-x-4 text-sm">
+            <a href="/quiz" class="text-indigo-700 font-semibold hover:text-indigo-800 transition-colors">Quizzes</a>
+            
             <!-- About Dropdown -->
             <div class="relative" ref="dropdownRef">
               <button 

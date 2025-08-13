@@ -23,6 +23,7 @@
             <span>⏱️</span>
             <span>8 min read</span>
           </span>
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">Rice Purity Test</span>
           <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-medium">Guide</span>
         </div>
       </header>
@@ -224,6 +225,14 @@
 </template>
 
 <script setup>
+// Article metadata
+const articleMeta = {
+  tags: ['Rice Purity Test', 'Guide'],
+  category: 'Rice Purity Test',
+  readTime: '8 min read',
+  publishedAt: '2024-12-01'
+}
+
 // SEO Meta
 useHead({
   title: 'What is a Good Rice Purity Score? Complete Guide | RiceTest Wiki',

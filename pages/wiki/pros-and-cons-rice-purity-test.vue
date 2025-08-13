@@ -23,6 +23,7 @@
             <span>⏱️</span>
             <span>9 min read</span>
           </span>
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">Rice Purity Test</span>
           <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full font-medium">Analysis</span>
         </div>
       </header>
@@ -388,6 +389,14 @@
 </template>
 
 <script setup>
+// Article metadata
+const articleMeta = {
+  tags: ['Rice Purity Test', 'Analysis'],
+  category: 'Rice Purity Test',
+  readTime: '9 min read',
+  publishedAt: '2024-12-01'
+}
+
 // SEO Meta
 useHead({
   title: 'Pros and Cons of Rice Purity Test: Is It Worth Taking in 2025? | RiceTest Wiki',

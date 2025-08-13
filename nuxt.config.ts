@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  compatibilityDate: '2025-08-13',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
   css: [
@@ -26,7 +27,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       link: [
         { rel: 'icon', type: 'image/png', href: '/ricetestsicon.png' },
         { rel: 'shortcut icon', href: '/ricetestsicon.png' },
-        { rel: 'apple-touch-icon', href: '/ricetestsicon.png' }
+        { rel: 'apple-touch-icon', href: '/ricetestsicon.png' },
+        // 添加 Google Fonts - Nunito 圆润卡通字体
+        { 
+          rel: 'preconnect', 
+          href: 'https://fonts.googleapis.com' 
+        },
+        { 
+          rel: 'preconnect', 
+          href: 'https://fonts.gstatic.com', 
+          crossorigin: '' 
+        },
+        { 
+          rel: 'stylesheet', 
+          href: 'https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
+          media: 'print',
+          onload: 'this.media="all"'
+        }
       ]
     }
   },

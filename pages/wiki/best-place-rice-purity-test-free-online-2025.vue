@@ -23,6 +23,7 @@
             <span>⏱️</span>
             <span>8 min read</span>
           </span>
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full font-medium">Rice Purity Test</span>
           <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full font-medium">Guide</span>
         </div>
       </header>
@@ -323,6 +324,14 @@
 </template>
 
 <script setup>
+// Article metadata
+const articleMeta = {
+  tags: ['Rice Purity Test', 'Guide'],
+  category: 'Rice Purity Test',
+  readTime: '8 min read',
+  publishedAt: '2024-12-01'
+}
+
 // SEO Meta
 useHead({
   title: 'Best Place to Do Rice Purity Test Free Online 2025: Complete Guide | RiceTest Wiki',
