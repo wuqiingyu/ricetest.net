@@ -2,13 +2,122 @@
   <div class="min-h-screen bg-white">
     
     <!-- Hero Section - Quiz Interface -->
-    <div class="relative overflow-hidden h-[50vh] bg-cover bg-center bg-no-repeat py-4 md:py-8" style="background-image: url('/bg.png');">
+    <div class="relative overflow-hidden bg-cover bg-center bg-no-repeat py-4 md:py-8 min-h-[60vh] md:h-[50vh]" style="background-image: url('/bg.png');">
       
       <div class="relative max-w-6xl mx-auto px-4 h-full flex items-center">
-        <!-- 左右布局容器 -->
-        <div class="grid md:grid-cols-2 gap-4 items-center w-full min-h-[35vh]">
+        
+        <!-- Mobile Layout: Vertical Stack -->
+        <div class="md:hidden w-full flex flex-col items-center justify-center space-y-6">
+          <!-- Mobile Title -->
+          <div class="text-center">
+            <h1 class="text-3xl font-black text-white mb-3 drop-shadow-lg">
+              TODAY'S QUIZ
+            </h1>
+          </div>
           
-          <!-- Left Side - Title and Cat -->
+          <!-- Mobile Date Badge -->
+          <div class="mb-3">
+            <div class="inline-block bg-green-100/95 border border-green-300 rounded-lg px-3 py-1.5 backdrop-blur-sm">
+              <p class="text-green-800 text-base font-semibold">
+                {{ formattedDate }}
+              </p>
+            </div>
+          </div>
+          
+          <!-- Mobile Question Card -->
+          <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-4 w-full max-w-sm border border-white/30">
+            <!-- Dynamic Question Display -->
+            <div class="mb-3">
+              <h2 class="text-lg font-bold text-gray-900 mb-3 leading-relaxed text-center">
+                {{ currentQuestion.question }}
+              </h2>
+
+              <!-- Dynamic Answer Options -->
+              <div class="space-y-2">
+                <div 
+                  v-for="(option, index) in currentQuestion.options" 
+                  :key="index"
+                  @click="selectOption(index)"
+                  :class="[
+                    'w-full p-3 text-left rounded-lg border-2 cursor-pointer font-medium text-sm transition-all duration-300 transform',
+                    selectedOptionIndex === index 
+                      ? 'bg-blue-100 border-blue-400 text-blue-800 shadow-lg scale-[1.02]'
+                      : hasAnswered && selectedAnswerIndex === index
+                        ? (index === currentQuestion.correctAnswer 
+                            ? 'bg-green-100 border-green-400 text-green-800 shadow-lg scale-[1.02]' 
+                            : 'bg-red-100 border-red-400 text-red-800 shadow-lg scale-[1.02]')
+                        : hasAnswered 
+                          ? 'bg-gray-100 border-gray-300 opacity-60 cursor-not-allowed' 
+                          : 'border-gray-300 hover:border-blue-400 hover:bg-blue-50 hover:scale-[1.02] active:scale-95'
+                  ]"
+                >
+                  <span class="flex items-center">
+                    <span :class="[
+                      'inline-block w-5 h-5 rounded-full border-2 text-gray-600 mr-2 flex items-center justify-center text-xs font-bold',
+                      selectedOptionIndex === index 
+                        ? 'bg-blue-500 border-blue-500 text-white'
+                        : hasAnswered && selectedAnswerIndex === index 
+                          ? (index === currentQuestion.correctAnswer 
+                              ? 'bg-green-500 border-green-500 text-white' 
+                              : 'bg-red-500 border-red-500 text-white')
+                          : 'border-gray-400'
+                    ]">
+                      {{ String.fromCharCode(65 + index) }}
+                    </span>
+                    {{ option }}
+                    <!-- 显示正确/错误图标（仅在已答题后） -->
+                    <div v-if="hasAnswered && selectedAnswerIndex === index" class="ml-auto">
+                      <svg v-if="index === currentQuestion.correctAnswer" class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <svg v-else class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                    </div>
+                  </span>
+                </div>
+              </div>
+
+              <!-- 显示正确答案（仅在答错时） -->
+              <div v-if="hasAnswered && selectedAnswerIndex !== currentQuestion.correctAnswer" class="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+                <div class="flex items-start space-x-2">
+                  <svg class="w-5 h-5 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <p class="text-sm font-medium text-green-800">Correct Answer:</p>
+                    <p class="text-sm text-green-700">
+                      {{ String.fromCharCode(65 + currentQuestion.correctAnswer) }}. {{ currentQuestion.options[currentQuestion.correctAnswer] }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Play Button -->
+            <div class="flex justify-center">
+              <button 
+                @click="handleButtonClick($event)"
+                :disabled="selectedOptionIndex === null && !hasAnswered"
+                :class="[
+                  'px-5 py-2 rounded-lg transition-all duration-300 font-bold shadow-lg transform text-sm',
+                  !hasAnswered && selectedOptionIndex !== null
+                    ? 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white hover:scale-105 cursor-pointer'
+                    : hasAnswered
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white hover:scale-105 cursor-pointer'
+                      : 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-60'
+                ]"
+              >
+                {{ getButtonText() }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Layout: Two Column Grid -->
+        <div class="hidden md:grid md:grid-cols-2 gap-4 items-center w-full min-h-[35vh]">
+          
+          <!-- Left Side - Title and Fox -->
           <div class="text-left relative" style="margin-left: 150px;">
             <!-- 大狐狸图片 - 占满hero section高度 -->
             <div class="relative flex justify-center md:justify-start">
@@ -163,12 +272,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                <h3 class="text-xl font-bold text-gray-900 mb-6">
                   How Pure Are You?
                 </h3>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
-                  Take the famous 100-question Rice Purity Test and discover your innocence level
-                </p>
                 <a 
                   href="/"
                   class="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-8 rounded-full hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -193,12 +299,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                <h3 class="text-xl font-bold text-gray-900 mb-6">
                   Am I Gay Quiz
                 </h3>
-                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
-                  Explore your feelings and discover insights about your sexual orientation
-                </p>
                 <a 
                   href="/quiz/gay-test"
                   class="inline-block bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -221,12 +324,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-3">
+                <h3 class="text-xl font-bold text-gray-700 mb-6">
                   What's My Personality?
                 </h3>
-                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Discover your unique personality type and how you see the world
-                </p>
                 <button 
                   disabled
                   class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
@@ -263,12 +363,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-3">
+                <h3 class="text-xl font-bold text-gray-700 mb-6">
                   What's My Love Language?
                 </h3>
-                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Learn how you give and receive love in relationships
-                </p>
                 <button 
                   disabled
                   class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
@@ -291,12 +388,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-3">
+                <h3 class="text-xl font-bold text-gray-700 mb-6">
                   What's My Attachment Style?
                 </h3>
-                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Understand how you connect and bond in relationships
-                </p>
                 <button 
                   disabled
                   class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
@@ -319,12 +413,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-3">
+                <h3 class="text-xl font-bold text-gray-700 mb-6">
                   What's My Dating Style?
                 </h3>
-                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Discover your approach to dating and romantic relationships
-                </p>
                 <button 
                   disabled
                   class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
@@ -361,12 +452,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-3">
+                <h3 class="text-xl font-bold text-gray-700 mb-6">
                   What's My Ideal Career?
                 </h3>
-                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Find career paths that match your personality and interests
-                </p>
                 <button 
                   disabled
                   class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
@@ -389,12 +477,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-3">
+                <h3 class="text-xl font-bold text-gray-700 mb-6">
                   What Are My Core Values?
                 </h3>
-                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Discover what truly matters most to you in life
-                </p>
                 <button 
                   disabled
                   class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
@@ -417,12 +502,9 @@
                 </div>
               </div>
               <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-3">
+                <h3 class="text-xl font-bold text-gray-700 mb-6">
                   What's My Leadership Style?
                 </h3>
-                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-                  Learn how you lead and inspire others around you
-                </p>
                 <button 
                   disabled
                   class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
