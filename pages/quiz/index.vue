@@ -543,6 +543,7 @@
 </template>
 
 <script setup>
+import confetti from 'canvas-confetti'
 import quizData from '~/data/daily-quiz.json'
 
 // 动态获取当前日期
@@ -634,8 +635,6 @@ const getButtonText = () => {
 
 // 特效函数（从 gay-test 页面复制）
 const triggerCanvasEffect = async (event) => {
-  const { default: confetti } = await import('canvas-confetti')
-  
   // 随机选择特效类型
   const effects = ['fireworks', 'confetti', 'stars']
   const effectType = effects[Math.floor(Math.random() * effects.length)]
