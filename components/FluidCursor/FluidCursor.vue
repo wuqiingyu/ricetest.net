@@ -43,18 +43,18 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   simResolution: 128,
-  dyeResolution: 1024,
+  dyeResolution: 1440,
   captureResolution: 512,
-  densityDissipation: 1,
-  velocityDissipation: 0.2,
-  pressure: 0.8,
+  densityDissipation: 3.5,
+  velocityDissipation: 2,
+  pressure: 0.1,
   pressureIterations: 20,
-  curl: 30,
-  splatRadius: 0.25,
+  curl: 3,
+  splatRadius: 0.4,
   splatForce: 6000,
   shading: true,
   colorUpdateSpeed: 10,
-  backColor: () => ({ r: 0, g: 0, b: 0 }),
+  backColor: () => ({ r: 0.5, g: 0, b: 0 }),
   transparent: true,
 });
 
