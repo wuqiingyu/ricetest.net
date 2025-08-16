@@ -245,7 +245,7 @@
     <section id="quizzes" class="py-16 md:py-20">
       <div class="max-w-6xl mx-auto px-4">
         
-        <!-- Trending Tests -->
+        <!-- Trending Tests (保持不变) -->
         <div class="mb-16">
           <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -258,26 +258,24 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Rice Purity Test -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+            <div class="quiz-card">
               <div class="relative">
                 <img 
                   src="/rice-purity-test.jpg" 
                   alt="How Pure Are You?"
-                  class="w-full h-48 object-cover"
+                  class="quiz-card-image"
                 >
-                <div class="absolute top-4 left-4">
-                  <span class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    🔥 HOT
-                  </span>
+                <div class="quiz-card-badge hot">
+                  🔥 HOT
                 </div>
               </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-900 mb-6">
+              <div class="quiz-card-content">
+                <h3 class="quiz-card-title available">
                   How Pure Are You?
                 </h3>
                 <a 
                   href="/"
-                  class="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold py-3 px-8 rounded-full hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  class="quiz-card-button play blue"
                 >
                   PLAY
                 </a>
@@ -285,236 +283,75 @@
             </div>
 
             <!-- Gay Test -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+            <div class="quiz-card">
               <div class="relative">
                 <img 
                   src="/gay-test/gaytest4.png" 
                   alt="Am I Gay Quiz"
-                  class="w-full h-48 object-cover"
+                  class="quiz-card-image"
                 >
-                <div class="absolute top-4 left-4">
-                  <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    🏳️‍🌈 POPULAR
-                  </span>
+                <div class="quiz-card-badge popular">
+                  🏳️‍🌈 POPULAR
                 </div>
               </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-900 mb-6">
+              <div class="quiz-card-content">
+                <h3 class="quiz-card-title available">
                   Am I Gay Quiz
                 </h3>
                 <a 
                   href="/quiz/gay-test"
-                  class="inline-block bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  class="quiz-card-button play purple"
                 >
                   PLAY
                 </a>
               </div>
             </div>
 
-            <!-- Coming Soon Placeholder -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden opacity-70">
+            <!-- Past Life Death Test -->
+            <div class="quiz-card">
               <div class="relative">
-                <div class="bg-gradient-to-br from-gray-400 to-gray-500 h-48 flex items-center justify-center">
-                  <div class="text-white text-6xl">🔮</div>
-                </div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    ⏳ SOON
-                  </span>
+                <img 
+                  src="https://image.ricetest.net/past-life-death.png" 
+                  alt="How Did You Die In A Past Life"
+                  class="quiz-card-image"
+                >
+                <div class="quiz-card-badge mystical">
+                  🔮 MYSTICAL
                 </div>
               </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-6">
-                  What's My Personality?
+              <div class="quiz-card-content">
+                <h3 class="quiz-card-title available">
+                  How Did You Die In A Past Life
                 </h3>
-                <button 
-                  disabled
-                  class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
+                <a 
+                  href="/quiz/past-life-death"
+                  class="quiz-card-button play purple"
                 >
-                  COMING SOON
-                </button>
+                  PLAY
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Relationship Tests -->
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              💕 Relationship Tests
-            </h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-              Understand your relationships, love style, and compatibility
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Love Language Test -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden opacity-70">
-              <div class="relative">
-                <div class="bg-gradient-to-br from-pink-400 to-red-500 h-48 flex items-center justify-center">
-                  <div class="text-white text-6xl">💖</div>
-                </div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    ⏳ SOON
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-6">
-                  What's My Love Language?
-                </h3>
-                <button 
-                  disabled
-                  class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
-                >
-                  COMING SOON
-                </button>
-              </div>
-            </div>
-
-            <!-- Attachment Style -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden opacity-70">
-              <div class="relative">
-                <div class="bg-gradient-to-br from-orange-400 to-pink-500 h-48 flex items-center justify-center">
-                  <div class="text-white text-6xl">🤗</div>
-                </div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    ⏳ SOON
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-6">
-                  What's My Attachment Style?
-                </h3>
-                <button 
-                  disabled
-                  class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
-                >
-                  COMING SOON
-                </button>
-              </div>
-            </div>
-
-            <!-- Dating Style -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden opacity-70">
-              <div class="relative">
-                <div class="bg-gradient-to-br from-purple-400 to-pink-500 h-48 flex items-center justify-center">
-                  <div class="text-white text-6xl">💘</div>
-                </div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    ⏳ SOON
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-6">
-                  What's My Dating Style?
-                </h3>
-                <button 
-                  disabled
-                  class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
-                >
-                  COMING SOON
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Career & Life Tests -->
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              🎯 Career & Life Tests
-            </h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-              Find your path, discover your strengths, and plan your future
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Career Test -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden opacity-70">
-              <div class="relative">
-                <div class="bg-gradient-to-br from-teal-400 to-blue-500 h-48 flex items-center justify-center">
-                  <div class="text-white text-6xl">💼</div>
-                </div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    ⏳ SOON
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-6">
-                  What's My Ideal Career?
-                </h3>
-                <button 
-                  disabled
-                  class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
-                >
-                  COMING SOON
-                </button>
-              </div>
-            </div>
-
-            <!-- Life Values -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden opacity-70">
-              <div class="relative">
-                <div class="bg-gradient-to-br from-green-400 to-teal-500 h-48 flex items-center justify-center">
-                  <div class="text-white text-6xl">🌟</div>
-                </div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    ⏳ SOON
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-6">
-                  What Are My Core Values?
-                </h3>
-                <button 
-                  disabled
-                  class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
-                >
-                  COMING SOON
-                </button>
-              </div>
-            </div>
-
-            <!-- Leadership Style -->
-            <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden opacity-70">
-              <div class="relative">
-                <div class="bg-gradient-to-br from-indigo-400 to-purple-500 h-48 flex items-center justify-center">
-                  <div class="text-white text-6xl">👑</div>
-                </div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                    ⏳ SOON
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 text-center">
-                <h3 class="text-xl font-bold text-gray-700 mb-6">
-                  What's My Leadership Style?
-                </h3>
-                <button 
-                  disabled
-                  class="inline-block bg-gray-400 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed"
-                >
-                  COMING SOON
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- 动态Quiz分类 -->
+        <!-- 你可以通过传入 specific-quizzes 来指定显示哪些测试 -->
+        <!-- 示例: -->
+        <!-- <DynamicQuizCategory 
+               category="personality" 
+               :quizzes="allQuizzes" 
+               :max-quizzes="3"
+               :specific-quizzes="['disney-princess-glow-up', 'which-country-look-like']"
+             /> -->
+        
+        <!-- 动态加载所有分类 -->
+        <DynamicQuizCategory 
+          v-for="category in availableCategories" 
+          :key="category"
+          :category="category"
+          :quizzes="allQuizzes"
+          :max-quizzes="3"
+        />
 
       </div>
     </section>
@@ -533,7 +370,7 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
               <span class="text-2xl">🔬</span>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Scientifically-Based</h3>
@@ -543,7 +380,7 @@
           </div>
 
           <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
               <span class="text-2xl">🔒</span>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">100% Private</h3>
@@ -553,7 +390,7 @@
           </div>
 
           <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
               <span class="text-2xl">⚡</span>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Instant Results</h3>
@@ -563,7 +400,7 @@
           </div>
 
           <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
               <span class="text-2xl">📱</span>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Mobile Friendly</h3>
@@ -573,7 +410,7 @@
           </div>
 
           <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
               <span class="text-2xl">💝</span>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Completely Free</h3>
@@ -583,7 +420,7 @@
           </div>
 
           <div class="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-            <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
               <span class="text-2xl">🎯</span>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Actionable Insights</h3>
@@ -598,7 +435,7 @@
     <!-- CTA Section -->
     <section class="bg-gradient-to-r from-indigo-600 to-purple-600 py-16 md:py-20">
       <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">
           Ready to Discover Your True Self?
         </h2>
         <p class="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
@@ -625,8 +462,53 @@
 </template>
 
 <script setup>
-import confetti from 'canvas-confetti'
+import { ref, computed, nextTick } from 'vue'
 import quizData from '~/data/daily-quiz.json'
+
+// 导入动态组件
+import DynamicQuizCategory from '~/components/Quiz/DynamicQuizCategory.vue'
+
+// 获取Supabase客户端
+const supabase = useSupabaseClient()
+
+// 获取所有quiz数据
+async function getAllQuizzes() {
+  try {
+    const { data: quizzes, error } = await supabase
+      .from('quizzes')
+      .select('id, title, slug, category, hero_image, created_at')
+      .order('created_at', { ascending: false })
+    
+    if (error) throw error
+    return quizzes || []
+  } catch (error) {
+    console.error('Error fetching quizzes:', error)
+    return []
+  }
+}
+
+// 获取所有quiz数据
+const { data: allQuizzes } = await useLazyAsyncData(
+  'all-quizzes',
+  () => getAllQuizzes(),
+  {
+    server: true,
+    client: true,
+    default: () => []
+  }
+)
+
+// 获取所有可用的categories
+const availableCategories = computed(() => {
+  if (!allQuizzes.value || allQuizzes.value.length === 0) return []
+  
+  // 提取所有唯一的categories
+  const categories = [...new Set(allQuizzes.value.map(quiz => quiz.category))]
+  
+  // 过滤掉trending tests中已经展示的（如果你想排除某些category）
+  // 这里我们保留所有categories，让trending tests和动态分类都显示
+  return categories.filter(category => category) // 过滤掉空值
+})
 
 // 动态获取当前日期
 const formattedDate = computed(() => {
@@ -642,10 +524,11 @@ const formattedDate = computed(() => {
 // 从外部文件加载题目库
 const questionPool = quizData.questions
 
-// 随机选择一个题目
+// 使用固定的题目索引避免SSR不匹配
 const currentQuestion = computed(() => {
-  const randomIndex = Math.floor(Math.random() * questionPool.length)
-  const question = questionPool[randomIndex]
+  // 使用固定索引确保服务端和客户端一致
+  const questionIndex = 0 // 或者使用其他固定逻辑
+  const question = questionPool[questionIndex]
   
   // 适配数据结构差异 (correct vs correctAnswer)
   return {
@@ -717,6 +600,12 @@ const getButtonText = () => {
 
 // 特效函数（从 gay-test 页面复制）
 const triggerCanvasEffect = async (event) => {
+  // 只在客户端执行
+  if (!process.client) return
+  
+  // 动态导入canvas-confetti
+  const { default: confetti } = await import('canvas-confetti')
+  
   // 随机选择特效类型
   const effects = ['fireworks', 'confetti', 'stars']
   const effectType = effects[Math.floor(Math.random() * effects.length)]
@@ -852,6 +741,81 @@ useHead({
 </script>
 
 <style scoped>
+/* 统一卡片模板 */
+.quiz-card {
+  @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden;
+}
+
+.quiz-card.coming-soon {
+  @apply opacity-70;
+}
+
+.quiz-card-image {
+  @apply w-full h-48 md:h-48 object-cover;
+  aspect-ratio: 16/9;
+}
+
+.quiz-card-placeholder {
+  @apply h-48 flex items-center justify-center text-white text-6xl;
+  aspect-ratio: 16/9;
+}
+
+.quiz-card-content {
+  @apply p-4 md:p-6 text-center;
+}
+
+.quiz-card-title {
+  @apply text-xl font-bold mb-4 md:mb-6;
+}
+
+.quiz-card-title.available {
+  @apply text-gray-900;
+}
+
+.quiz-card-title.coming-soon {
+  @apply text-gray-700;
+}
+
+.quiz-card-button {
+  @apply block w-full font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg;
+}
+
+.quiz-card-button.play {
+  @apply text-white;
+}
+
+.quiz-card-button.play.blue {
+  @apply bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700;
+}
+
+.quiz-card-button.play.purple {
+  @apply bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700;
+}
+
+.quiz-card-button.disabled {
+  @apply bg-gray-400 text-white cursor-not-allowed;
+}
+
+.quiz-card-badge {
+  @apply absolute top-4 left-4 text-white px-3 py-1 rounded-full text-xs font-bold;
+}
+
+.quiz-card-badge.hot {
+  @apply bg-red-500;
+}
+
+.quiz-card-badge.popular {
+  @apply bg-purple-500;
+}
+
+.quiz-card-badge.mystical {
+  @apply bg-indigo-500;
+}
+
+.quiz-card-badge.soon {
+  @apply bg-gray-500;
+}
+
 /* 只保留最基本的响应式调整 */
 @media (max-width: 768px) {
   .hero-title {

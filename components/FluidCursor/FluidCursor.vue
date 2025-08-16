@@ -89,14 +89,14 @@ function pointerPrototype(): Pointer {
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 
 onMounted(() => {
-  console.log('FluidCursor: Component mounted')
+  // Component mounted
   const canvas = canvasRef.value;
   if (!canvas) {
     console.error('FluidCursor: Canvas not found')
     return;
   }
 
-  console.log('FluidCursor: Canvas found, starting initialization')
+  // Canvas found, starting initialization
 
   // Pointer and config setup
   const pointers: Pointer[] = [pointerPrototype()];
@@ -126,7 +126,7 @@ onMounted(() => {
     return;
   }
   
-  console.log('FluidCursor: WebGL context created successfully')
+  // WebGL context created successfully
 
   // If no linear filtering, reduce resolution
   if (!ext.supportLinearFiltering) {
@@ -849,10 +849,10 @@ onMounted(() => {
   }
 
   function initFramebuffers() {
-    console.log('FluidCursor: Initializing framebuffers');
+    // Initializing framebuffers
     const simRes = getResolution(config.SIM_RESOLUTION!);
     const dyeRes = getResolution(config.DYE_RESOLUTION!);
-    console.log('FluidCursor: Simulation resolution:', simRes, 'Dye resolution:', dyeRes);
+    // Simulation resolution and dye resolution set
 
     const texType = ext.halfFloatTexType;
     const rgba = ext.formatRGBA;
@@ -963,7 +963,7 @@ onMounted(() => {
     
     // Debug: Log frame updates occasionally
     if (Math.random() < 0.001) {
-      console.log('FluidCursor: Frame updated, dt:', dt);
+      // Frame updated
     }
     
     requestAnimationFrame(updateFrame);
@@ -1392,7 +1392,7 @@ onMounted(() => {
   );
 
   // Start the animation loop immediately
-  console.log('FluidCursor: Starting animation loop')
+  // Starting animation loop
   
   // Add initial splat for demo purposes
   setTimeout(() => {
@@ -1401,7 +1401,7 @@ onMounted(() => {
     pointer.texcoordY = 0.5;
     pointer.color = generateColor();
     clickSplat(pointer);
-    console.log('FluidCursor: Added initial demo splat')
+    // Added initial demo splat
   }, 500);
   
   updateFrame();

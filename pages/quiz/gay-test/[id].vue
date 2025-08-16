@@ -334,6 +334,16 @@ const showNextButton = ref(false)
 const effectType = ref('fireworks') // Track which effect to show
 const isMuted = ref(false) // 控制音效开关状态
 
+// 从localStorage加载静音状态
+onMounted(() => {
+  if (process.client) {
+    const savedMuteState = localStorage.getItem('quiz-muted')
+    if (savedMuteState !== null) {
+      isMuted.value = savedMuteState === 'true'
+    }
+  }
+})
+
 // Methods
 const getNextPageUrl = () => {
   // Determine next page URL based on current question
@@ -347,6 +357,11 @@ const getNextPageUrl = () => {
 // 切换静音状态
 const toggleMute = () => {
   isMuted.value = !isMuted.value
+  
+  // 保存静音状态到localStorage
+  if (process.client) {
+    localStorage.setItem('quiz-muted', isMuted.value.toString())
+  }
 }
 
 const selectAnswer = (optionIndex, event) => {

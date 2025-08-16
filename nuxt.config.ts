@@ -1,7 +1,28 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-08-13',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/supabase'
+  ],
+  supabase: {
+    redirect: false,
+    redirectOptions: {
+      login: false,
+      callback: false,
+      exclude: []
+    },
+    url: 'https://oxknmteqlbblwfmdfcdt.supabase.co',
+    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94a25tdGVxbGJibHdmbWRmY2R0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUxODA1NzIsImV4cCI6MjA3MDc1NjU3Mn0.4IHKkcV3q6p3EKPj9mcKUwgemSYdEn3BPgkkJeDT__U'
+  },
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
+      cacheDuration: process.env.NUXT_PUBLIC_CACHE_DURATION,
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL
+    }
+  },
   css: [
     '~/assets/css/main.css',
     '~/assets/css/apple-theme.css'

@@ -14,7 +14,9 @@
     "nuxt": "^3.10.0"
   },
   "dependencies": {
+    "@nuxtjs/supabase": "^1.6.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "@supabase/supabase-js": "^2.55.0",
     "canvas-confetti": "^1.9.3"
   }
 }
