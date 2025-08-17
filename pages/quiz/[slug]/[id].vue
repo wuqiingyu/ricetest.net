@@ -36,13 +36,14 @@ if (isNaN(questionId) || questionId < 1) {
 const supabase = useSupabaseClient()
 
 // 获取测试数据的函数
-async function getQuizBySlug(slug) {
+async function getQuizBySlug(slug, language = 'en') {
   try {
     // 获取测试基本信息
     const { data: quiz, error: quizError } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image, results')
+      .select('id, title, slug, category, hero_image, language')
       .eq('slug', slug)
+      .eq('language', language)
       .single()
     
     if (quizError) throw quizError
@@ -53,29 +54,46 @@ async function getQuizBySlug(slug) {
       .select(`
         id,
         text,
+        image_url,
         order_index,
+        language,
         options(
           id,
           text,
+          image_url,
           score,
-          order_index
+          order_index,
+          language
         )
       `)
       .eq('quiz_id', quiz.id)
+      .eq('language', language)
       .order('order_index', { ascending: true })
     
     if (questionsError) throw questionsError
+    
+    // 获取测试结果配置
+    const { data: results, error: resultsError } = await supabase
+      .from('quiz_results')
+      .select('id, name, description, image_url, min_score, max_score, language')
+      .eq('quiz_id', quiz.id)
+      .eq('language', language)
+      .order('order_index', { ascending: true })
+    
+    if (resultsError) throw resultsError
     
     // 整理数据结构
     const formattedQuestions = questions.map(question => ({
       id: question.id,
       text: question.text,
+      image_url: question.image_url,
       order_index: question.order_index,
       options: question.options
         .sort((a, b) => a.order_index - b.order_index)
         .map(option => ({
           id: option.id,
           text: option.text,
+          image_url: option.image_url,
           score: option.score
         }))
     }))
@@ -83,7 +101,7 @@ async function getQuizBySlug(slug) {
     return {
       ...quiz,
       questions: formattedQuestions,
-      results: typeof quiz.results === 'string' ? JSON.parse(quiz.results) : quiz.results
+      results: results || []
     }
   } catch (error) {
     console.error(`Error fetching quiz ${slug}:`, error)
@@ -91,10 +109,13 @@ async function getQuizBySlug(slug) {
   }
 }
 
+// 当前语言设置
+const currentLanguage = ref('en')
+
 // 服务端获取测试数据 - SSR优化
 const { data: quiz, pending, error } = await useLazyAsyncData(
   `quiz-${slug}`,
-  () => getQuizBySlug(slug),
+  () => getQuizBySlug(slug, currentLanguage.value),
   {
     server: true,
     client: true,

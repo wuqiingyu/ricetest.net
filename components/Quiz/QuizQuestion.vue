@@ -80,28 +80,72 @@
           <!-- Question Content -->
           <div class="text-center mb-8">
             <div class="text-sm text-gray-500 mb-2">Question {{ currentQuestionNumber }} of {{ totalQuestions }}</div>
+            
             <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 leading-relaxed">
               {{ currentQuestion.text }}
             </h2>
+            
+            <!-- Question Image (optional) -->
+            <div v-if="currentQuestion.image_url" class="mb-6">
+              <img 
+                :src="currentQuestion.image_url" 
+                :alt="currentQuestion.text"
+                class="question-image mx-auto rounded-xl shadow-lg"
+                loading="lazy"
+              />
+            </div>
           </div>
           
           <!-- Answer Options -->
-          <div class="space-y-3 max-w-2xl mx-auto">
+          <div :class="hasImageOptions ? 'options-image-grid' : 'space-y-3 max-w-2xl mx-auto'">
             <button 
               v-for="(option, index) in currentQuestion.options"
               :key="option.id"
               @click="selectAnswer(index, $event)"
               :disabled="selectedAnswerIndex !== null"
               :class="[
-                'w-full p-4 text-left border rounded-xl transition-all duration-300 transform',
+                hasImageOptions ? 'option-image-card' : 'w-full p-4 text-left border rounded-xl transition-all duration-300 transform',
                 selectedAnswerIndex === index 
-                  ? 'bg-gradient-to-r from-purple-100 to-pink-100 border-purple-400 shadow-lg scale-[1.02]' 
+                  ? (hasImageOptions 
+                      ? 'border-purple-400 bg-gradient-to-br from-purple-100 to-pink-100 scale-105' 
+                      : 'bg-gradient-to-r from-purple-100 to-pink-100 border-purple-400 shadow-lg scale-[1.02]')
                   : selectedAnswerIndex !== null 
-                    ? 'bg-gray-100 border-gray-300 opacity-60' 
-                    : 'bg-white/50 hover:bg-white/70 border-gray-200 hover:shadow-lg hover:scale-[1.02] active:scale-95'
+                    ? (hasImageOptions ? 'opacity-60' : 'bg-gray-100 border-gray-300 opacity-60')
+                    : (hasImageOptions 
+                        ? 'hover:scale-105 hover:shadow-lg' 
+                        : 'bg-white/50 hover:bg-white/70 border-gray-200 hover:shadow-lg hover:scale-[1.02] active:scale-95')
               ]"
             >
-              <div class="flex items-start space-x-3">
+              <!-- 图片选项布局 -->
+              <div v-if="hasImageOptions" class="option-image-content">
+                <img 
+                  v-if="option.image_url" 
+                  :src="option.image_url" 
+                  :alt="option.text || `Option ${String.fromCharCode(65 + index)}`"
+                  class="option-image"
+                />
+                <div v-if="option.text" class="option-text-overlay">
+                  {{ option.text }}
+                </div>
+                <!-- 选项标识 -->
+                <div :class="[
+                  'option-label',
+                  selectedAnswerIndex === index 
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600' 
+                    : 'bg-gradient-to-r from-purple-500 to-pink-500'
+                ]">
+                  {{ String.fromCharCode(65 + index) }}
+                </div>
+                <!-- 选中标识 -->
+                <div v-if="selectedAnswerIndex === index" class="selected-indicator">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- 文字选项布局 -->
+              <div v-else class="flex items-start space-x-3">
                 <div :class="[
                   'flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold',
                   selectedAnswerIndex === index 
@@ -239,6 +283,10 @@ onMounted(() => {
 })
 
 // Computed
+const hasImageOptions = computed(() => {
+  return props.currentQuestion?.options?.some(option => option.image_url) || false
+})
+
 const isLastQuestion = computed(() => {
   return props.currentQuestionNumber >= props.totalQuestions
 })
@@ -468,6 +516,145 @@ watch(() => props.currentQuestionNumber, () => {
 </script>
 
 <style scoped>
+/* 问题图片样式 */
+.question-image {
+  max-width: 100%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .question-image {
+    max-height: 200px;
+  }
+}
+
+/* 图片选项网格布局 */
+.options-image-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 图片选项卡片 */
+.option-image-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.option-image-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* 图片选项内容容器 */
+.option-image-content {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+/* 选项图片 */
+.option-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 文字覆盖层 */
+.option-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+  color: white;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* 选项标识 */
+.option-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* 选中指示器 */
+.selected-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(45deg, #10b981, #059669);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .options-image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .option-image-content {
+    height: 150px;
+  }
+  
+  .option-text-overlay {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .options-image-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .option-image-content {
+    height: 180px;
+  }
+}
+
+/* 超过4个选项时的自适应网格 */
+.options-image-grid:has(> :nth-child(5)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.options-image-grid:has(> :nth-child(7)) {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
 /* Selected Answer Animation */
 @keyframes selected-pulse {
   0%, 100% {

@@ -64,13 +64,14 @@ definePageMeta({
 const supabase = useSupabaseClient()
 
 // 获取测试数据的函数
-async function getQuizBySlug(slug) {
+async function getQuizBySlug(slug, language = 'en') {
   try {
     // 获取测试基本信息
     const { data: quiz, error: quizError } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image')
+      .select('id, title, slug, category, hero_image, language')
       .eq('slug', slug)
+      .eq('language', language)
       .single()
     
     if (quizError) throw quizError
@@ -82,14 +83,17 @@ async function getQuizBySlug(slug) {
         id,
         text,
         order_index,
+        language,
         options(
           id,
           text,
           score,
-          order_index
+          order_index,
+          language
         )
       `)
       .eq('quiz_id', quiz.id)
+      .eq('language', language)
       .order('order_index', { ascending: true })
     
     if (questionsError) throw questionsError
@@ -97,8 +101,9 @@ async function getQuizBySlug(slug) {
     // 获取测试结果配置
     const { data: results, error: resultsError } = await supabase
       .from('quiz_results')
-      .select('id, name, description, image_url, min_score, max_score')
+      .select('id, name, description, image_url, min_score, max_score, language')
       .eq('quiz_id', quiz.id)
+      .eq('language', language)
       .order('order_index', { ascending: true })
     
     if (resultsError) throw resultsError
@@ -128,10 +133,13 @@ async function getQuizBySlug(slug) {
   }
 }
 
+// 当前语言设置
+const currentLanguage = ref('en')
+
 // 服务端获取数据 - SSR优化
 const { data: quiz, pending, error } = await useLazyAsyncData(
   `quiz-${slug}`,
-  () => getQuizBySlug(slug),
+  () => getQuizBySlug(slug, currentLanguage.value),
   {
     server: true,
     client: true,

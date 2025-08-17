@@ -61,13 +61,14 @@ definePageMeta({
 const supabase = useSupabaseClient()
 
 // 获取测试数据的函数
-async function getQuizBySlug(slug) {
+async function getQuizBySlug(slug, language = 'en') {
   try {
     // 获取测试基本信息
     const { data: quiz, error: quizError } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image')
+      .select('id, title, slug, category, hero_image, language')
       .eq('slug', slug)
+      .eq('language', language)
       .single()
     
     if (quizError) throw quizError
@@ -79,14 +80,17 @@ async function getQuizBySlug(slug) {
         id,
         text,
         order_index,
+        language,
         options(
           id,
           text,
           score,
-          order_index
+          order_index,
+          language
         )
       `)
       .eq('quiz_id', quiz.id)
+      .eq('language', language)
       .order('order_index', { ascending: true })
     
     if (questionsError) throw questionsError
@@ -94,8 +98,9 @@ async function getQuizBySlug(slug) {
     // 获取测试结果配置
     const { data: results, error: resultsError } = await supabase
       .from('quiz_results')
-      .select('id, name, description, image_url, min_score, max_score')
+      .select('id, name, description, image_url, min_score, max_score, language')
       .eq('quiz_id', quiz.id)
+      .eq('language', language)
       .order('order_index', { ascending: true })
     
     if (resultsError) throw resultsError
@@ -126,11 +131,12 @@ async function getQuizBySlug(slug) {
 }
 
 // 获取所有quiz数据的函数
-async function getAllQuizzes() {
+async function getAllQuizzes(language = 'en') {
   try {
     const { data: quizzes, error } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image, created_at')
+      .select('id, title, slug, category, hero_image, created_at, language')
+      .eq('language', language)
       .order('created_at', { ascending: false })
     
     if (error) throw error
@@ -235,7 +241,7 @@ async function saveUserSession(quizId, answers, result) {
 // 获取测试数据
 const { data: quiz, pending, error } = await useLazyAsyncData(
   `quiz-${slug}`,
-  () => getQuizBySlug(slug),
+  () => getQuizBySlug(slug, currentLanguage.value),
   {
     server: false, // 结果页面不需要服务端渲染
     client: true,
@@ -243,10 +249,13 @@ const { data: quiz, pending, error } = await useLazyAsyncData(
   }
 )
 
+// 当前语言设置
+const currentLanguage = ref('en')
+
 // 获取所有quiz数据用于推荐
 const { data: allQuizzes } = await useLazyAsyncData(
   'all-quizzes-results',
-  () => getAllQuizzes(),
+  () => getAllQuizzes(currentLanguage.value),
   {
     server: false,
     client: true,

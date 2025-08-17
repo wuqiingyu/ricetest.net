@@ -19,7 +19,7 @@
       >
         <div class="relative">
           <img 
-            :src="quiz.hero_image || getDefaultImage(quiz.category)"
+            :src="quiz.hero_image"
             :alt="quiz.title"
             class="w-full h-48 md:h-48 object-cover"
             loading="lazy"
@@ -65,39 +65,50 @@ const props = defineProps({
   specificQuizzes: {
     type: Array,
     default: () => []
+  },
+  language: {
+    type: String,
+    default: 'en'
   }
 })
 
 // 根据配置获取要显示的测试
 const categoryQuizzes = computed(() => {
+  // 首先过滤语言
+  const languageFilteredQuizzes = props.quizzes.filter(quiz => quiz.language === props.language)
+  
   // 如果指定了具体的quiz，优先使用
   if (props.specificQuizzes.length > 0) {
     const specificQuizzes = props.specificQuizzes
-      .map(quizSlug => props.quizzes.find(quiz => quiz.slug === quizSlug))
+      .map(quizSlug => languageFilteredQuizzes.find(quiz => quiz.slug === quizSlug))
       .filter(Boolean) // 过滤掉找不到的quiz
     return specificQuizzes.slice(0, props.maxQuizzes)
   }
   
   // 过滤出当前分类的测试
-  const filtered = props.quizzes.filter(quiz => quiz.category === props.category)
+  const filtered = languageFilteredQuizzes.filter(quiz => quiz.category === props.category)
   
-  // 随机排序后取前N个
-  const shuffled = [...filtered].sort(() => Math.random() - 0.5)
+  // 使用固定种子的伪随机排序，确保SSR和客户端一致
+  const seededShuffle = (array) => {
+    // 使用category作为种子，确保每个分类的顺序是固定的
+    let seed = 0;
+    for (let i = 0; i < props.category.length; i++) {
+      seed += props.category.charCodeAt(i);
+    }
+    
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      seed = (seed * 9301 + 49297) % 233280;
+      const j = Math.floor((seed / 233280) * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+  
+  const shuffled = seededShuffle(filtered)
   return shuffled.slice(0, props.maxQuizzes)
 })
 
-// 根据category获取默认图片
-const getDefaultImage = (category) => {
-  const defaultImages = {
-    personality: '/quiz-placeholder-personality.png',
-    trivia: '/quiz-placeholder-trivia.png',
-    relationship: '/quiz-placeholder-relationship.png',
-    career: '/quiz-placeholder-career.png',
-    entertainment: '/quiz-placeholder-entertainment.png',
-    lifestyle: '/quiz-placeholder-lifestyle.png'
-  }
-  return defaultImages[category] || '/quiz-placeholder-default.png'
-}
 
 // 根据category获取徽章样式
 const getBadgeClass = (category) => {
@@ -154,7 +165,8 @@ const getCategoryIcon = (category) => {
     geography: '🌍',
     kpop: '🎵',
     game: '🎮',
-    travel: '✈️'
+    travel: '✈️',
+    funny: '😂' 
   }
   return icons[category] || '🎮'
 }
@@ -162,22 +174,23 @@ const getCategoryIcon = (category) => {
 // 根据category获取分类标题
 const getCategoryTitle = (category) => {
   const titles = {
-    personality: 'Personality Tests',
-    trivia: 'Trivia Quizzes',
-    relationship: 'Relationship Tests',
-    career: 'Career & Life Tests',
-    entertainment: 'Entertainment Quizzes',
-    lifestyle: 'Lifestyle Tests',
-    celebrities: 'Celebrity Quizzes',
-    history: 'History Quizzes',
-    sports: 'Sports Quizzes',
-    movie: 'Movie & TV Quizzes',
-    geography: 'Geography Quizzes',
-    kpop: 'K-Pop Quizzes',
-    game: 'Gaming Quizzes',
-    travel: 'Travel Quizzes'
+    personality: 'Personality',
+    trivia: 'Trivia',
+    relationship: 'Relationship',
+    career: 'Career & Life',
+    entertainment: 'Entertainment',
+    lifestyle: 'Lifestyle',
+    celebrities: 'Celebrity',
+    history: 'History',
+    sports: 'Sports',
+    movie: 'Movie & TV',
+    geography: 'Geography',
+    kpop: 'K-Pop',
+    game: 'Gaming',
+    travel: 'Travel',
+    funny: 'Funny'
   }
-  return titles[category] || 'Quiz Collection'
+  return titles[category] || 'Quiz'
 }
 
 // 根据category获取分类描述

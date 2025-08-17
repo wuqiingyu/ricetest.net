@@ -351,6 +351,7 @@
           :category="category"
           :quizzes="allQuizzes"
           :max-quizzes="3"
+          :language="currentLanguage"
         />
 
       </div>
@@ -472,11 +473,12 @@ import DynamicQuizCategory from '~/components/Quiz/DynamicQuizCategory.vue'
 const supabase = useSupabaseClient()
 
 // 获取所有quiz数据
-async function getAllQuizzes() {
+async function getAllQuizzes(language = 'en') {
   try {
     const { data: quizzes, error } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image, created_at')
+      .select('id, title, slug, category, hero_image, created_at, language')
+      .eq('language', language)
       .order('created_at', { ascending: false })
     
     if (error) throw error
@@ -487,10 +489,13 @@ async function getAllQuizzes() {
   }
 }
 
+// 当前语言设置
+const currentLanguage = ref('en')
+
 // 获取所有quiz数据
 const { data: allQuizzes } = await useLazyAsyncData(
   'all-quizzes',
-  () => getAllQuizzes(),
+  () => getAllQuizzes(currentLanguage.value),
   {
     server: true,
     client: true,
