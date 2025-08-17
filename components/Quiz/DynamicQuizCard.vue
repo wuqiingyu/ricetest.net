@@ -107,19 +107,52 @@ const getButtonClass = (category) => {
 }
 
 .quiz-card-content {
-  @apply p-4 md:p-6 text-center;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 140px !important; /* 固定内容区域高度 */
+}
+
+@media (min-width: 768px) {
+  .quiz-card-content {
+    padding: 1.5rem;
+  }
 }
 
 .quiz-card-title {
-  @apply text-xl font-bold mb-4 md:mb-6;
+  font-size: 1.25rem;
+  font-weight: bold;
+  height: 3.5rem !important; /* 固定2行高度 */
+  line-height: 1.75rem !important; /* 每行1.75rem高度 */
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin-bottom: 0.5rem !important;
+  padding-top: 0.25rem;
 }
 
 .quiz-card-title.available {
-  @apply text-gray-900;
+  color: #111827;
 }
 
 .quiz-card-button {
-  @apply block w-full font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-white;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  color: white;
+  margin-top: auto !important; /* 推到底部 */
+}
+
+.quiz-card-button:hover {
+  transform: scale(1.05);
 }
 
 .quiz-card-button.play.purple {

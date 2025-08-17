@@ -28,13 +28,13 @@
             {{ getBadgeText(quiz.category) }}
           </div>
         </div>
-        <div class="p-4 md:p-6 text-center">
-          <h3 class="text-xl font-bold mb-4 md:mb-6 text-gray-900">
+        <div class="quiz-card-content">
+          <h3 class="quiz-card-title">
             {{ quiz.title }}
           </h3>
           <a 
             :href="`/quiz/${quiz.slug}`"
-            :class="`block w-full font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-white ${getButtonClass(quiz.category)}`"
+            :class="`quiz-card-button ${getButtonClass(quiz.category)}`"
           >
             PLAY
           </a>
@@ -214,3 +214,61 @@ const getCategoryDescription = (category) => {
   return descriptions[category] || 'Explore your knowledge and personality'
 }
 </script>
+
+<style>
+/* 卡片内容区域 */
+.quiz-card-content {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 180px !important; /* 增加高度以容纳三行标题 */
+}
+
+@media (min-width: 768px) {
+  .quiz-card-content {
+    padding: 1.5rem;
+  }
+}
+
+/* 卡片标题 - 使用更具体的选择器覆盖页面样式 */
+.quiz-card-content .quiz-card-title {
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+  color: #111827 !important;
+  height: 5.25rem !important; /* 3行高度 (1.75rem * 3) */
+  line-height: 1.4 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important; /* 改为3行 */
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  text-align: left !important; /* 左对齐 */
+}
+
+/* 卡片按钮 - 使用更具体的选择器 */
+.quiz-card-content .quiz-card-button {
+  display: block !important;
+  width: 100% !important;
+  font-weight: bold !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 9999px !important;
+  transition: all 0.3s ease !important;
+  transform: scale(1) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  color: white !important;
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+}
+
+.quiz-card-content .quiz-card-button:hover {
+  transform: scale(1.05) !important;
+}
+</style>

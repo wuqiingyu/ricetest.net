@@ -769,17 +769,29 @@ useHead({
   @apply p-4 md:p-6 text-center;
 }
 
-.quiz-card-title {
+.quiz-card-title,
+.quiz-card-title.available,
+.quiz-card-title.coming-soon {
   @apply text-xl font-bold mb-4 md:mb-6;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important; /* 只显示1行 */
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: normal !important; /* 允许换行但限制为1行 */
+  height: 1.5rem !important; /* 固定1行高度 */
+  line-height: 1.5rem !important;
 }
 
+/* 颜色样式 */
 .quiz-card-title.available {
-  @apply text-gray-900;
+  color: #111827 !important; /* text-gray-900 */
 }
 
 .quiz-card-title.coming-soon {
-  @apply text-gray-700;
+  color: #374151 !important; /* text-gray-700 */
 }
+
 
 .quiz-card-button {
   @apply block w-full font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg;
