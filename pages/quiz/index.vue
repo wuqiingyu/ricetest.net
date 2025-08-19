@@ -118,7 +118,7 @@
         <div class="hidden md:grid md:grid-cols-2 gap-4 items-center w-full min-h-[35vh]">
           
           <!-- Left Side - Title and Fox -->
-          <div class="text-left relative" style="margin-left: 150px;">
+          <div class="text-left relative" style="margin-left: 250px;">
             <!-- 大狐狸图片 - 占满hero section高度 -->
             <div class="relative flex justify-center md:justify-start">
               <img 
