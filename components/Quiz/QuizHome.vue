@@ -112,12 +112,12 @@
             </div>
             
             <div class="text-center">
-              <button 
-                @click="scrollToStartButton"
-                class="start-quiz-btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-xl w-full max-w-md mx-auto"
+              <a 
+                :href="`/quiz/${quiz.slug}/1`"
+                class="start-quiz-btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-xl w-full max-w-md mx-auto inline-block"
               >
                 Start Quiz Now
-              </button>
+              </a>
             </div>
           </div>
         </div>

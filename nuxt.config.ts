@@ -78,13 +78,14 @@ export default defineNuxtConfig({
       cssMinify: true,
       terserOptions: {
         compress: {
-          drop_console: true,
+          drop_console: false, // 保留console，避免影响调试
           drop_debugger: true,
-          pure_funcs: ['console.log'],
-          passes: 2
+          pure_funcs: [], // 移除pure_funcs，避免影响Vue方法
+          passes: 1 // 减少压缩轮次，避免过度优化
         },
         mangle: {
-          safari10: true
+          safari10: true,
+          reserved: ['scrollToTest', 'scrollToStartButton'] // 保留关键方法名
         }
       },
       rollupOptions: {
