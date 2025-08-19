@@ -16,6 +16,15 @@
           <div class="hidden md:flex space-x-4 text-sm">
             <a href="/quiz" class="text-indigo-700 font-semibold hover:text-indigo-800 transition-colors">Quizzes</a>
             
+            <!-- QuizDuel Link -->
+            <a 
+              href="/quiz-duel" 
+              class="text-orange-600 font-semibold hover:text-orange-700 transition-colors flex items-center space-x-1"
+            >
+              <span>⚔️</span>
+              <span>QuizDuel</span>
+            </a>
+            
             <!-- About Dropdown -->
             <div class="relative" ref="dropdownRef">
               <button 
@@ -55,9 +64,16 @@
             <a href="/wiki" class="text-gray-600 hover:text-blue-600 transition-colors">Wiki</a>
           </div>
           
-          <!-- Mobile Navigation - Quizzes + Hamburger -->
-          <div class="md:hidden flex items-center space-x-4">
+          <!-- Mobile Navigation - Quizzes + QuizDuel + Hamburger -->
+          <div class="md:hidden flex items-center space-x-3">
             <a href="/quiz" class="text-indigo-700 font-semibold hover:text-indigo-800 transition-colors text-sm">Quizzes</a>
+            <a 
+              href="/quiz-duel" 
+              class="text-orange-600 font-semibold hover:text-orange-700 transition-colors text-sm flex items-center space-x-1"
+            >
+              <span>⚔️</span>
+              <span>Duel</span>
+            </a>
             <button 
               @click="toggleMobileMenu"
               class="text-gray-600 hover:text-blue-600 transition-colors p-2"
