@@ -2,12 +2,9 @@
 <template>
   <div v-if="categoryQuizzes.length > 0" class="mb-16">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        {{ getCategoryIcon(category) }} {{ getCategoryTitle(category) }}
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 capitalize">
+        {{ category }}
       </h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        {{ getCategoryDescription(category) }}
-      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -147,71 +144,6 @@ const getBadgeText = (category) => {
     lifestyle: '✨ LIFESTYLE'
   }
   return badgeTexts[category] || '🎮 QUIZ'
-}
-
-// 根据category获取分类图标
-const getCategoryIcon = (category) => {
-  const icons = {
-    personality: '🎭',
-    trivia: '🧠',
-    relationship: '💕',
-    career: '🎯',
-    entertainment: '🎬',
-    lifestyle: '✨',
-    celebrities: '⭐',
-    history: '📚',
-    sports: '⚽',
-    movie: '🎥',
-    geography: '🌍',
-    kpop: '🎵',
-    game: '🎮',
-    travel: '✈️',
-    funny: '😂' 
-  }
-  return icons[category] || '🎮'
-}
-
-// 根据category获取分类标题
-const getCategoryTitle = (category) => {
-  const titles = {
-    personality: 'Personality',
-    trivia: 'Trivia',
-    relationship: 'Relationship',
-    career: 'Career & Life',
-    entertainment: 'Entertainment',
-    lifestyle: 'Lifestyle',
-    celebrities: 'Celebrity',
-    history: 'History',
-    sports: 'Sports',
-    movie: 'Movie & TV',
-    geography: 'Geography',
-    kpop: 'K-Pop',
-    game: 'Gaming',
-    travel: 'Travel',
-    funny: 'Funny'
-  }
-  return titles[category] || 'Quiz'
-}
-
-// 根据category获取分类描述
-const getCategoryDescription = (category) => {
-  const descriptions = {
-    personality: 'Discover insights about your character, traits, and inner self',
-    trivia: 'Test your knowledge across various topics and subjects',
-    relationship: 'Understand your relationships, love style, and compatibility',
-    career: 'Find your path, discover your strengths, and plan your future',
-    entertainment: 'Fun quizzes about movies, TV shows, music, and pop culture',
-    lifestyle: 'Explore your lifestyle choices, habits, and preferences',
-    celebrities: 'Which celebrity do you match? Test your star knowledge',
-    history: 'Journey through time with historical facts and events',
-    sports: 'Athletic knowledge and sports personality assessments',
-    movie: 'Cinema and television entertainment quizzes',
-    geography: 'Explore the world through location-based challenges',
-    kpop: 'Korean pop culture and music personality tests',
-    game: 'Gaming knowledge and gamer personality assessments',
-    travel: 'Wanderlust and destination-based personality quizzes'
-  }
-  return descriptions[category] || 'Explore your knowledge and personality'
 }
 </script>
 
