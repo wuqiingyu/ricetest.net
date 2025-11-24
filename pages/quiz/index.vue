@@ -477,12 +477,21 @@ async function getAllQuizzes(language = 'en') {
   try {
     const { data: quizzes, error } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image, created_at, language')
+      .select('id, title, slug, category_id, hero_image, created_at, language, categories(category, subcategory)')
       .eq('language', language)
       .order('created_at', { ascending: false })
     
     if (error) throw error
-    return quizzes || []
+    
+    // 映射数据以保持兼容性
+    const formattedQuizzes = (quizzes || []).map(quiz => ({
+      ...quiz,
+      category: quiz.categories?.category || 'Quiz',
+      subcategory: quiz.categories?.subcategory || '',
+      category_slug: quiz.categories?.category?.toLowerCase() || ''
+    }))
+    
+    return formattedQuizzes
   } catch (error) {
     console.error('Error fetching quizzes:', error)
     return []

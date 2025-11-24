@@ -66,13 +66,20 @@ async function getQuizBySlug(slug, language = 'en') {
     // 获取测试基本信息
     const { data: quiz, error: quizError } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image, language')
+      .select('id, title, slug, category_id, hero_image, language, categories(category, subcategory)')
       .eq('slug', slug)
       .eq('language', language)
       .single()
     
     if (quizError) throw quizError
     
+    // 映射分类数据
+    const quizWithCategory = {
+      ...quiz,
+      category: quiz.categories?.category || 'Quiz',
+      subcategory: quiz.categories?.subcategory || ''
+    }
+
     // 获取测试的问题和选项
     const { data: questions, error: questionsError } = await supabase
       .from('questions')
@@ -120,7 +127,7 @@ async function getQuizBySlug(slug, language = 'en') {
     }))
     
     return {
-      ...quiz,
+      ...quizWithCategory,
       questions: formattedQuestions,
       results: results || []
     }
@@ -135,12 +142,22 @@ async function getAllQuizzes(language = 'en') {
   try {
     const { data: quizzes, error } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image, created_at, language')
+      .select('id, title, slug, category_id, hero_image, created_at, language, categories(category, subcategory)')
       .eq('language', language)
       .order('created_at', { ascending: false })
     
     if (error) throw error
-    return quizzes || []
+        
+    // 映射数据以保持兼容性
+    const formattedQuizzes = (quizzes || []).map(quiz => ({
+      ...quiz,
+      category: quiz.categories?.category || 'Quiz',
+      subcategory: quiz.categories?.subcategory || '',
+      category_slug: quiz.categories?.category?.toLowerCase() || ''
+    }))
+    
+    return formattedQuizzes
+    
   } catch (error) {
     console.error('Error fetching all quizzes:', error)
     return []

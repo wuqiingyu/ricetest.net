@@ -41,12 +41,19 @@ async function getQuizBySlug(slug, language = 'en') {
     // 获取测试基本信息
     const { data: quiz, error: quizError } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category, hero_image, language')
+      .select('id, title, slug, category_id, hero_image, language, categories(category, subcategory)')
       .eq('slug', slug)
       .eq('language', language)
       .single()
     
     if (quizError) throw quizError
+
+    // 映射分类数据
+    const quizWithCategory = {
+      ...quiz,
+      category: quiz.categories?.category || 'Quiz',
+      subcategory: quiz.categories?.subcategory || ''
+    }
     
     // 获取测试的问题和选项
     const { data: questions, error: questionsError } = await supabase
@@ -99,7 +106,7 @@ async function getQuizBySlug(slug, language = 'en') {
     }))
     
     return {
-      ...quiz,
+      ...quizWithCategory,
       questions: formattedQuestions,
       results: results || []
     }
