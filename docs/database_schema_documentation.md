@@ -29,10 +29,13 @@
 |--------|---------|------|------|
 | `id` | UUID | 主键,测试唯一标识符 | `550e8400-e29b-41d4-a716-446655440000` |
 | `title` | TEXT | 测试标题 | `"How Did You Die In A Past Life"` |
+| `subtitle` | VARCHAR(100) | 副标题 | `"Discover which Hogwarts House best matches your true spirit."` |
 | `slug` | VARCHAR(100) | URL友好的标识符,用于生成页面链接 | `"past-life-death"` |
 | `category_id` | UUID | **外键**,关联到categories表的categoryid | `550e8400-e29b-41d4-a716-446655440002` |
+| `type` | VARCHAR(20) | 测试类型 | `"single"`, `"multi"`, `"iframe"` |
 | ~~`category`~~ | ~~VARCHAR(50)~~ | ~~已废弃,请使用category_id关联categories表~~ | ~~`"personality"`~~ |
 | `hero_image` | TEXT | 测试头图URL,支持相对/绝对路径 | `"/quiz-images/past-life-death-hero.jpg"` |
+| `iframe_url` | TEXT | iframelink |`"https://iframe.funblips.com/countries_world/index.html"` |
 | `language` | VARCHAR(5) | 语言代码 (必填) | `"en"`, `"zh"`, `"es"`, `"fr"` |
 | ~~`results`~~ | ~~JSONB~~ | ~~结果配置,包含所有可能的测试结果~~ | ~~已迁移至quiz_results表~~ |
 | `created_at` | TIMESTAMP | 创建时间 | `2024-01-01 12:00:00` |
