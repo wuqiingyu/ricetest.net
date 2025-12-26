@@ -1,10 +1,18 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-08-13',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/supabase'
   ],
+  components: {
+    dirs: [
+      {
+        path: '~/components',
+        pathPrefix: false,
+      }
+    ]
+  },
   supabase: {
     redirect: false,
     redirectOptions: {

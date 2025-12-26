@@ -32,12 +32,12 @@
               <h3 class="text-xl font-bold mb-4 md:mb-6 text-gray-900">
                 {{ relatedQuiz.title }}
               </h3>
-              <a 
-                :href="`/quiz/${relatedQuiz.slug}`"
+              <NuxtLink 
+                :to="`/quiz/${relatedQuiz.slug}`"
                 :class="`block w-full font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-white ${getButtonClass(relatedQuiz.category)}`"
               >
                 PLAY
-              </a>
+              </NuxtLink>
             </div>
           </div>
         </div>

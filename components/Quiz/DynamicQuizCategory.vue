@@ -21,9 +21,6 @@
             class="w-full h-48 md:h-48 object-cover"
             loading="lazy"
           >
-          <div :class="`absolute top-4 left-4 text-white px-3 py-1 rounded-full text-xs font-bold ${getBadgeClass(quiz.category)}`">
-            {{ getBadgeText(quiz.category) }}
-          </div>
         </div>
         <div class="quiz-card-content">
           <h3 class="quiz-card-title">

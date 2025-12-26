@@ -23,12 +23,12 @@
     <div v-else-if="!hasAnswers" class="max-w-4xl mx-auto px-4 py-8 text-center">
       <h2 class="text-2xl font-bold text-gray-800 mb-4">No Quiz Results Found</h2>
       <p class="text-gray-600 mb-8">It looks like you haven't completed the quiz yet. Start the quiz to see your results!</p>
-      <a 
-        :href="`/quiz/${quiz?.slug || ''}`"
+      <NuxtLink 
+        :to="`/quiz/${quiz?.slug || ''}`"
         class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
       >
         Start {{ quiz?.title || 'Quiz' }}
-      </a>
+      </NuxtLink>
     </div>
 
     <!-- Results Display -->

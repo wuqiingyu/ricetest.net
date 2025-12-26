@@ -307,12 +307,12 @@
               </div>
             </div>
 
-            <!-- Past Life Death Test -->
+            <!-- Let AI Decode Your Intelligence -->
             <div class="quiz-card">
               <div class="relative">
                 <img 
-                  src="https://image.ricetest.net/past-life-death.png" 
-                  alt="How Did You Die In A Past Life"
+                  src="https://image.ricetest.net/let-ai-decode-your-intelligence.png" 
+                  alt="Let AI Decode Your Intelligence"
                   class="quiz-card-image"
                 >
                 <div class="quiz-card-badge mystical">
@@ -321,10 +321,10 @@
               </div>
               <div class="quiz-card-content">
                 <h3 class="quiz-card-title available">
-                  How Did You Die In A Past Life
+                  Let AI Decode Your Intelligence
                 </h3>
                 <a 
-                  href="/quiz/past-life-death"
+                  href="/quiz/let-ai-decode-your-intelligence"
                   class="quiz-card-button play purple"
                 >
                   PLAY
@@ -350,7 +350,7 @@
           :key="category"
           :category="category"
           :quizzes="allQuizzes"
-          :max-quizzes="3"
+          :max-quizzes="6"
           :language="currentLanguage"
         />
 

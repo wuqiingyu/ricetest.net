@@ -192,21 +192,6 @@ watch(error, (newError) => {
   }
 })
 
-// 预加载下一题数据（性能优化）
-onMounted(() => {
-  if (process.client && quiz.value && questionNumber.value < totalQuestions.value) {
-    // 预加载下一题
-    const nextQuestionNumber = questionNumber.value + 1
-    const nextUrl = `/quiz/${slug}/${nextQuestionNumber}`
-    
-    // 预加载下一个页面
-    const link = document.createElement('link')
-    link.rel = 'prefetch'
-    link.href = nextUrl
-    document.head.appendChild(link)
-  }
-})
-
 // 键盘快捷键支持
 onMounted(() => {
   if (process.client) {
