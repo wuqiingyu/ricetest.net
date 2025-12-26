@@ -23,8 +23,8 @@
       />
     </div>
 
-    <!-- Loading State -->
-    <div v-if="isLoading" class="max-w-4xl mx-auto px-4 py-8 text-center">
+    <!-- Loading State - 只在真正没有数据时才显示 -->
+    <div v-if="isLoading && !currentQuestion" class="max-w-4xl mx-auto px-4 py-8 text-center">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
       <p class="text-gray-600 mt-4">Loading question...</p>
     </div>

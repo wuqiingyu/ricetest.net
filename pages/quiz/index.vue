@@ -265,9 +265,7 @@
                   alt="How Pure Are You?"
                   class="quiz-card-image"
                 >
-                <div class="quiz-card-badge hot">
-                  🔥 HOT
-                </div>
+
               </div>
               <div class="quiz-card-content">
                 <h3 class="quiz-card-title available">
@@ -290,9 +288,7 @@
                   alt="Am I Gay Quiz"
                   class="quiz-card-image"
                 >
-                <div class="quiz-card-badge popular">
-                  🏳️‍🌈 POPULAR
-                </div>
+
               </div>
               <div class="quiz-card-content">
                 <h3 class="quiz-card-title available">
@@ -315,9 +311,7 @@
                   alt="Let AI Decode Your Intelligence"
                   class="quiz-card-image"
                 >
-                <div class="quiz-card-badge mystical">
-                  🔮 MYSTICAL
-                </div>
+
               </div>
               <div class="quiz-card-content">
                 <h3 class="quiz-card-title available">
