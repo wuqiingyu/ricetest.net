@@ -61,7 +61,7 @@
           <!-- Start Quiz Button -->
           <div class="flex justify-center" id="quiz-start-button">
             <a 
-              :href="`/quiz/${quiz.slug}/1`"
+              :href="startQuizUrl"
               class="start-quiz-btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-xl w-[80vw] inline-block text-center"
             >
               Start Quiz Now
@@ -73,8 +73,8 @@
           </p>
         </div>
 
-        <!-- Questions Overview -->
-        <div class="mt-12 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-8 border border-purple-100">
+        <!-- Questions Overview (hidden for iframe type) -->
+        <div v-if="!isIframeType" class="mt-12 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-8 border border-purple-100">
           <h2 class="text-3xl font-bold text-gray-800 mb-6">Questions Overview</h2>
           <div class="text-gray-600 mb-8">
             <p class="mb-6">
@@ -136,6 +136,10 @@ const props = defineProps({
     type: Object,
     default: null
   },
+  quizType: {
+    type: String,
+    default: 'single'
+  },
   isLoading: {
     type: Boolean,
     default: false
@@ -152,6 +156,15 @@ const props = defineProps({
     type: String,
     default: null
   }
+})
+
+// Computed properties for quiz type
+const isIframeType = computed(() => props.quizType === 'iframe')
+const startQuizUrl = computed(() => {
+  if (!props.quiz?.slug) return '#'
+  return isIframeType.value 
+    ? `/quiz/${props.quiz.slug}/play` 
+    : `/quiz/${props.quiz.slug}/1`
 })
 
 // Reactive data
