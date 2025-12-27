@@ -222,4 +222,29 @@ onMounted(() => {
     })
   }
 })
+
+// 预加载下一页（性能优化）
+onMounted(() => {
+  if (process.client && quiz.value) {
+    // 预加载下一题页面
+    if (questionNumber.value < totalQuestions.value) {
+      const nextUrl = `/quiz/${slug}/${questionNumber.value + 1}`
+      const link = document.createElement('link')
+      link.rel = 'prefetch'
+      link.href = nextUrl
+      link.as = 'document'
+      document.head.appendChild(link)
+    }
+    
+    // 如果是最后一题，预加载结果页
+    if (questionNumber.value === totalQuestions.value) {
+      const resultsUrl = `/quiz/${slug}/results`
+      const link = document.createElement('link')
+      link.rel = 'prefetch'
+      link.href = resultsUrl
+      link.as = 'document'
+      document.head.appendChild(link)
+    }
+  }
+})
 </script>

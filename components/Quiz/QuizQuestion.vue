@@ -23,8 +23,8 @@
       />
     </div>
 
-    <!-- Loading State - 只在真正没有数据时才显示 -->
-    <div v-if="isLoading && !currentQuestion" class="max-w-4xl mx-auto px-4 py-8 text-center">
+    <!-- Loading State -->
+    <div v-if="isLoading" class="max-w-4xl mx-auto px-4 py-8 text-center">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
       <p class="text-gray-600 mt-4">Loading question...</p>
     </div>
@@ -33,12 +33,12 @@
     <div v-else-if="error" class="max-w-4xl mx-auto px-4 py-8 text-center">
       <div class="text-red-600 text-xl mb-4">⚠️ Question Not Found</div>
       <p class="text-gray-600 mb-6">{{ error }}</p>
-      <NuxtLink 
-        :to="`/quiz/${$route.params.slug}`"
+      <a 
+        :href="`/quiz/${$route.params.slug}`"
         class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300"
       >
         Back to Quiz Home
-      </NuxtLink>
+      </a>
     </div>
 
     <!-- Main Content -->
@@ -48,16 +48,16 @@
         <div class="relative overflow-hidden px-4 md:px-6 py-6 md:py-8 bg-gradient-to-b from-white/40 via-white/60 to-white/40">
           <!-- Navigation Buttons -->
           <div class="absolute top-4 left-4">
-            <NuxtLink 
+            <a 
               v-if="currentQuestionNumber > 1"
-              :to="`/quiz/${$route.params.slug}/${currentQuestionNumber - 1}`"
+              :href="`/quiz/${$route.params.slug}/${currentQuestionNumber - 1}`"
               class="flex items-center px-3 py-2 text-gray-600 hover:text-purple-600 transition-colors bg-white/60 hover:bg-white/80 rounded-lg shadow-sm"
             >
               <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
               </svg>
               <span class="text-sm font-medium">Previous</span>
-            </NuxtLink>
+            </a>
           </div>
 
           <!-- Sound Toggle Button -->
@@ -170,15 +170,15 @@
 
           <!-- Next Button -->
           <div v-if="showNextButton" class="mt-8 text-center">
-            <NuxtLink 
-              :to="getNextPageUrl()"
+            <a 
+              :href="getNextPageUrl()"
               class="next-button inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
             >
               {{ isLastQuestion ? 'See Results' : 'Next Question' }}
               <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
-            </NuxtLink>
+            </a>
           </div>
 
           <!-- Progress Display -->
