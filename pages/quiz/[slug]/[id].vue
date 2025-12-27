@@ -2,6 +2,7 @@
 <template>
   <QuizQuestion
     :quiz="quiz"
+    :quiz-type="quiz?.type || 'single'"
     :current-question="currentQuestion"
     :current-question-number="questionNumber"
     :total-questions="totalQuestions"
@@ -41,7 +42,7 @@ async function getQuizBySlug(slug, language = 'en') {
     // 获取测试基本信息
     const { data: quiz, error: quizError } = await supabase
       .from('quizzes')
-      .select('id, title, slug, category_id, hero_image, language, categories(category, subcategory)')
+      .select('id, title, slug, type, category_id, hero_image, language, categories(category, subcategory)')
       .eq('slug', slug)
       .eq('language', language)
       .single()

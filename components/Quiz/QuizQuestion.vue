@@ -105,15 +105,7 @@
               :disabled="selectedAnswerIndex !== null"
               :class="[
                 hasImageOptions ? 'option-image-card' : 'w-full p-4 text-left border rounded-xl transition-all duration-300 transform',
-                selectedAnswerIndex === index 
-                  ? (hasImageOptions 
-                      ? 'border-purple-400 bg-gradient-to-br from-purple-100 to-pink-100 scale-105' 
-                      : 'bg-gradient-to-r from-purple-100 to-pink-100 border-purple-400 shadow-lg scale-[1.02]')
-                  : selectedAnswerIndex !== null 
-                    ? (hasImageOptions ? 'opacity-60' : 'bg-gray-100 border-gray-300 opacity-60')
-                    : (hasImageOptions 
-                        ? 'hover:scale-105 hover:shadow-lg' 
-                        : 'bg-white/50 hover:bg-white/70 border-gray-200 hover:shadow-lg hover:scale-[1.02] active:scale-95')
+                getOptionClass(option, index)
               ]"
             >
               <!-- 图片选项布局 -->
@@ -130,14 +122,29 @@
                 <!-- 选项标识 -->
                 <div :class="[
                   'option-label',
-                  selectedAnswerIndex === index 
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600' 
-                    : 'bg-gradient-to-r from-purple-500 to-pink-500'
+                  isRightWrongMode && selectedAnswerIndex !== null
+                    ? (option.score === 1 ? 'bg-green-500' : (selectedAnswerIndex === index ? 'bg-red-500' : 'bg-gray-400'))
+                    : (selectedAnswerIndex === index 
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-600' 
+                        : 'bg-gradient-to-r from-purple-500 to-pink-500')
                 ]">
                   {{ String.fromCharCode(65 + index) }}
                 </div>
-                <!-- 选中标识 -->
-                <div v-if="selectedAnswerIndex === index" class="selected-indicator">
+                <!-- 对错标识（right_wrong 模式） -->
+                <div v-if="isRightWrongMode && selectedAnswerIndex !== null && (option.score === 1 || selectedAnswerIndex === index)" 
+                     :class="[
+                       'selected-indicator',
+                       option.score === 1 ? 'bg-green-500' : 'bg-red-500'
+                     ]">
+                  <svg v-if="option.score === 1" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <svg v-else class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </div>
+                <!-- 原有选中标识（非对错模式） -->
+                <div v-else-if="!isRightWrongMode && selectedAnswerIndex === index" class="selected-indicator">
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                   </svg>
@@ -148,18 +155,31 @@
               <div v-else class="flex items-start space-x-3">
                 <div :class="[
                   'flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-sm font-bold',
-                  selectedAnswerIndex === index 
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600' 
-                    : 'bg-gradient-to-r from-purple-500 to-pink-500'
+                  isRightWrongMode && selectedAnswerIndex !== null
+                    ? (option.score === 1 ? 'bg-green-500' : (selectedAnswerIndex === index ? 'bg-red-500' : 'bg-gray-400'))
+                    : (selectedAnswerIndex === index 
+                        ? 'bg-gradient-to-r from-purple-600 to-pink-600' 
+                        : 'bg-gradient-to-r from-purple-500 to-pink-500')
                 ]">
                   {{ String.fromCharCode(65 + index) }}
                 </div>
                 <span :class="[
-                  'leading-relaxed',
-                  selectedAnswerIndex === index ? 'text-purple-800 font-medium' : 'text-gray-700'
+                  'leading-relaxed flex-1',
+                  isRightWrongMode && selectedAnswerIndex !== null
+                    ? (option.score === 1 ? 'text-green-800 font-medium' : (selectedAnswerIndex === index ? 'text-red-800 font-medium' : 'text-gray-500'))
+                    : (selectedAnswerIndex === index ? 'text-purple-800 font-medium' : 'text-gray-700')
                 ]">{{ option.text }}</span>
-                <!-- Checkmark for selected answer -->
-                <div v-if="selectedAnswerIndex === index" class="ml-auto">
+                <!-- 对错图标（仅 right_wrong 模式） -->
+                <div v-if="isRightWrongMode && selectedAnswerIndex !== null" class="ml-auto flex-shrink-0">
+                  <svg v-if="option.score === 1" class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <svg v-else-if="selectedAnswerIndex === index" class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </div>
+                <!-- 原有选中标记（非对错模式） -->
+                <div v-else-if="!isRightWrongMode && selectedAnswerIndex === index" class="ml-auto flex-shrink-0">
                   <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
@@ -263,6 +283,10 @@ const props = defineProps({
   soundUrl: {
     type: String,
     default: '/gay-test/watch-out.mp3'
+  },
+  quizType: {
+    type: String,
+    default: 'single' // 'single' | 'right_wrong' | 'multi' | 'iframe'
   }
 })
 
@@ -290,6 +314,55 @@ const hasImageOptions = computed(() => {
 const isLastQuestion = computed(() => {
   return props.currentQuestionNumber >= props.totalQuestions
 })
+
+// 是否为对错模式
+const isRightWrongMode = computed(() => props.quizType === 'right_wrong')
+
+// 获取正确答案索引（仅对错模式使用）
+const correctAnswerIndex = computed(() => {
+  if (!isRightWrongMode.value) return -1
+  return props.currentQuestion?.options?.findIndex(opt => opt.score === 1) ?? -1
+})
+
+// 获取选项的对错样式类
+const getOptionClass = (option, index) => {
+  // 未选择时的默认状态
+  if (selectedAnswerIndex.value === null) {
+    if (hasImageOptions.value) {
+      return 'hover:scale-105 hover:shadow-lg'
+    }
+    return 'bg-white/50 hover:bg-white/70 border-gray-200 hover:shadow-lg hover:scale-[1.02] active:scale-95'
+  }
+  
+  // 对错模式的特殊处理
+  if (isRightWrongMode.value) {
+    const isCorrect = option.score === 1
+    const isSelected = selectedAnswerIndex.value === index
+    
+    if (isCorrect) {
+      // 正确答案始终显示绿色
+      return hasImageOptions.value
+        ? 'border-green-500 bg-gradient-to-br from-green-100 to-emerald-100 scale-105 ring-2 ring-green-400'
+        : 'bg-gradient-to-r from-green-100 to-emerald-100 border-green-500 shadow-lg scale-[1.02] ring-2 ring-green-400'
+    } else if (isSelected) {
+      // 选中的错误答案显示红色
+      return hasImageOptions.value
+        ? 'border-red-500 bg-gradient-to-br from-red-100 to-rose-100 scale-105 ring-2 ring-red-400'
+        : 'bg-gradient-to-r from-red-100 to-rose-100 border-red-500 shadow-lg scale-[1.02] ring-2 ring-red-400'
+    } else {
+      // 其他未选中选项变灰
+      return hasImageOptions.value ? 'opacity-40' : 'bg-gray-100 border-gray-300 opacity-40'
+    }
+  }
+  
+  // 非对错模式的原有逻辑
+  if (selectedAnswerIndex.value === index) {
+    return hasImageOptions.value
+      ? 'border-purple-400 bg-gradient-to-br from-purple-100 to-pink-100 scale-105'
+      : 'bg-gradient-to-r from-purple-100 to-pink-100 border-purple-400 shadow-lg scale-[1.02]'
+  }
+  return hasImageOptions.value ? 'opacity-60' : 'bg-gray-100 border-gray-300 opacity-60'
+}
 
 // SEO
 const seoInfo = computed(() => {
