@@ -176,14 +176,8 @@ const quizDescription = computed(() => {
 const heroImage = computed(() => {
   if (!quiz.value) return null
   
-  // 根据slug生成对应的图片路径
-  const imagePath = `https://image.ricetest.net/${slug}`
-  
-  // 尝试不同的图片格式
-  const imageFormats = ['jpg', 'jpeg', 'png', 'webp']
-  
-  // 暂时返回通用图片，后续可以根据实际图片添加逻辑
-  return `https://image.ricetest.net/${slug}.png`
+  // 必须使用数据库中的 hero_image 字段
+  return quiz.value.hero_image || null
 })
 
 // 相关内容（可以根据测试类型动态调整）
