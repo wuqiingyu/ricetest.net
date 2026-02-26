@@ -66,7 +66,7 @@
                 <AdUnit
                   ad-slot="3886179542"
                   ad-format="auto"
-                  style="display:block;min-height:90px;"
+                  style="display:block;min-width:330px;min-height:280px;"
                 />
               </div>
               

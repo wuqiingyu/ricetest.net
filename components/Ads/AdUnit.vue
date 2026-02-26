@@ -18,8 +18,8 @@
 <script setup>
 const props = defineProps({
   adSlot: { type: String, required: true },
-  // 如果通过 GTM 注入/管理，可不传 adClient
-  adClient: { type: String, default: '' },
+  // 默认使用你提供的 AdSense Publisher ID
+  adClient: { type: String, default: 'ca-pub-4219881902610897' },
   adFormat: { type: String, default: 'auto' },
   style: { type: String, default: 'display:block;min-height:90px;' },
   responsive: { type: [Boolean, String], default: true }
