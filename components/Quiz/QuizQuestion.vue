@@ -42,10 +42,11 @@
     </div>
 
     <!-- Main Content -->
-    <main v-else-if="currentQuestion" id="main-content" class="max-w-4xl mx-auto px-4 py-8">
-      <div class="bg-white/20 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/30 apple-glass">
-        <!-- Question Display -->
-        <div class="relative overflow-hidden px-4 md:px-6 py-6 md:py-8 bg-gradient-to-b from-white/40 via-white/60 to-white/40">
+    <main v-else-if="currentQuestion" id="main-content" class="max-w-7xl mx-auto px-4 py-8">
+      <div class="quiz-layout">
+        <div class="quiz-main bg-white/20 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/30 apple-glass">
+          <!-- Question Display -->
+          <div class="relative overflow-hidden px-4 md:px-6 py-6 md:py-8 bg-gradient-to-b from-white/40 via-white/60 to-white/40">
           <!-- Navigation Buttons -->
           <div class="absolute top-4 left-4">
             <a 
@@ -96,6 +97,15 @@
             </div>
           </div>
           
+          <!-- Top Ad above answer card -->
+          <div class="ad-inline-top mb-6 max-w-2xl mx-auto">
+            <AdUnit
+              ad-slot="7084255114"
+              ad-format="auto"
+              style="display:block;min-width:330px;min-height:280px;"
+            />
+          </div>
+
           <!-- Answer Options -->
           <div :class="hasImageOptions ? 'options-image-grid' : 'space-y-3 max-w-2xl mx-auto'">
             <button 
@@ -188,6 +198,15 @@
             </button>
           </div>
 
+          <!-- Bottom Ad below answer card -->
+          <div class="ad-inline-bottom mt-6 max-w-2xl mx-auto">
+            <AdUnit
+              ad-slot="5455624465"
+              ad-format="auto"
+              style="display:block;min-width:330px;min-height:280px;"
+            />
+          </div>
+
           <!-- Next Button -->
           <div v-if="showNextButton" class="mt-8 text-center">
             <a 
@@ -208,6 +227,16 @@
             </div>
           </div>
         </div>
+        </div>
+
+        <!-- Right sidebar ad (desktop) -->
+        <aside class="quiz-side-ad">
+          <AdUnit
+            ad-slot="4142542792"
+            ad-format="auto"
+            style="display:block;width:300px;min-height:600px;"
+          />
+        </aside>
       </div>
 
       <!-- Quiz Introduction -->
@@ -756,5 +785,35 @@ watch(() => props.currentQuestionNumber, () => {
 
 .next-button {
   animation: slide-up 0.5s ease-out;
+}
+
+/* 题目页主布局（桌面端左主区 + 右广告） */
+.quiz-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.quiz-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 980px;
+}
+
+.quiz-side-ad {
+  width: 300px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 88px;
+}
+
+@media (max-width: 1024px) {
+  .quiz-layout {
+    display: block;
+  }
+
+  .quiz-side-ad {
+    display: none;
+  }
 }
 </style>

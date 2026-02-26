@@ -36,30 +36,52 @@
   <!-- Main Content -->
   <main id="main-content" class="max-w-4xl mx-auto px-4 py-8">
     <div v-if="!isComplete" class="bg-transparent">
-      <!-- Hero Image and Start Button -->
-      <div class="relative overflow-hidden px-4 md:px-6 py-8 md:py-12 text-center">
-        <!-- Hero Image -->
-        <div class="mb-8">
-          <img 
-            src="/gay-test/gay-test.jpeg"
-            alt="Two men in suits holding hands - representing love and self-discovery"
-            class="mx-auto rounded-2xl w-[80vw] h-auto object-cover"
+      <div class="quiz-layout">
+        <div class="quiz-main">
+          <!-- Hero Image and Start Button -->
+          <div class="relative overflow-hidden px-4 md:px-6 py-8 md:py-12 text-center">
+            <!-- Hero Image -->
+            <div class="mb-8">
+              <img 
+                src="/gay-test/gay-test.jpeg"
+                alt="Two men in suits holding hands - representing love and self-discovery"
+                class="mx-auto rounded-2xl w-[80vw] h-auto object-cover"
+              />
+            </div>
+
+            <!-- Ad above Start Quiz button -->
+            <div class="ad-top mb-6">
+              <AdUnit
+                ad-slot="3886179542"
+                ad-format="auto"
+                style="display:block;min-width:330px;min-height:280px;"
+              />
+            </div>
+            
+            <!-- Start Quiz Button with Animation -->
+            <div class="flex justify-center">
+              <a 
+                href="/quiz/gay-test/1"
+                class="start-quiz-btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-xl w-[80vw] inline-block text-center"
+              >
+                Start Quiz Now
+              </a>
+            </div>
+            
+            <p class="text-gray-600 mt-6 text-sm">
+              Take your time and answer honestly - this is your journey of self-discovery! 🌈
+            </p>
+          </div>
+        </div>
+
+        <!-- 右侧广告位（仅桌面端） -->
+        <aside class="quiz-side-ad">
+          <AdUnit
+            ad-slot="3072499126"
+            ad-format="auto"
+            style="display:block;width:300px;min-height:600px;"
           />
-        </div>
-        
-        <!-- Start Quiz Button with Animation -->
-        <div class="flex justify-center">
-          <a 
-            href="/quiz/gay-test/1"
-            class="start-quiz-btn bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl text-xl w-[80vw] inline-block text-center"
-          >
-            Start Quiz Now
-          </a>
-        </div>
-        
-        <p class="text-gray-600 mt-6 text-sm">
-          Take your time and answer honestly - this is your journey of self-discovery! 🌈
-        </p>
+        </aside>
       </div>
     </div>
 
@@ -1047,6 +1069,31 @@ const getConfettiStyle = (n) => {
   }
 }
 
+/* 页面主布局（桌面端给右侧广告留位） */
+.quiz-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.quiz-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.quiz-side-ad {
+  width: 300px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 88px;
+}
+
+.ad-top {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* 跳动按钮动画 */
 .start-quiz-btn {
   animation: quiz-bounce 2s ease-in-out infinite;
@@ -1064,6 +1111,16 @@ const getConfettiStyle = (n) => {
   }
   75% {
     transform: scale(1.02);
+  }
+}
+
+@media (max-width: 1024px) {
+  .quiz-layout {
+    display: block;
+  }
+
+  .quiz-side-ad {
+    display: none;
   }
 }
 </style>
