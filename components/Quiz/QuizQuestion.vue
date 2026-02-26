@@ -81,12 +81,8 @@
           <!-- Question Content -->
           <div class="text-center mb-8">
             <div class="text-sm text-gray-500 mb-2">Question {{ currentQuestionNumber }} of {{ totalQuestions }}</div>
-            
-            <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 leading-relaxed">
-              {{ currentQuestion.text }}
-            </h2>
-            
-            <!-- Question Image (optional) -->
+
+            <!-- Question Image (optional) - moved above title -->
             <div v-if="currentQuestion.image_url" class="mb-6">
               <img 
                 :src="currentQuestion.image_url" 
@@ -95,6 +91,10 @@
                 loading="lazy"
               />
             </div>
+            
+            <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 leading-relaxed">
+              {{ currentQuestion.text }}
+            </h2>
           </div>
           
           <!-- Top Ad above answer card -->
