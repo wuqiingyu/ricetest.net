@@ -229,7 +229,8 @@
         </div>
         </div>
 
-        <!-- Right sidebar ad (desktop) -->
+        <!-- Right sidebar ad (desktop) - temporarily disabled -->
+        <!--
         <aside class="quiz-side-ad">
           <AdUnit
             ad-slot="4142542792"
@@ -237,6 +238,7 @@
             style="display:block;width:300px;min-height:600px;"
           />
         </aside>
+        -->
       </div>
 
       <!-- Quiz Introduction -->
@@ -787,33 +789,19 @@ watch(() => props.currentQuestionNumber, () => {
   animation: slide-up 0.5s ease-out;
 }
 
-/* 题目页主布局（桌面端左主区 + 右广告） */
+/* 题目页主布局（侧边广告暂时关闭，主区居中） */
 .quiz-layout {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
+  justify-content: center;
 }
 
 .quiz-main {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
   max-width: 980px;
+  margin: 0 auto;
 }
 
 .quiz-side-ad {
-  width: 300px;
-  flex-shrink: 0;
-  position: sticky;
-  top: 88px;
-}
-
-@media (max-width: 1024px) {
-  .quiz-layout {
-    display: block;
-  }
-
-  .quiz-side-ad {
-    display: none;
-  }
+  display: none;
 }
 </style>
