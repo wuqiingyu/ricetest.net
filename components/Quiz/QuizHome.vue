@@ -86,7 +86,8 @@
             </div>
           </div>
 
-          <!-- 右侧广告位（仅桌面端） -->
+          <!-- 右侧广告位（仅桌面端）- temporarily disabled -->
+          <!--
           <aside class="quiz-side-ad">
             <AdUnit
               ad-slot="3072499126"
@@ -94,6 +95,7 @@
               style="display:block;width:300px;min-height:600px;"
             />
           </aside>
+          -->
         </div>
 
         <!-- Questions Overview (hidden for iframe type) -->
